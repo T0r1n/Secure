@@ -9,6 +9,14 @@ import copy
 
 app = Flask(__name__)
 
+def load_json(file_path):
+    import os
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return []
+
+
 with open("corpus.txt", encoding="utf-8") as f:
     text = f.read()
 text_model = markovify.Text(text)
@@ -34,6 +42,9 @@ def user_profile(user_id):
     user = next((u for u in users if u['id'] == user_id), None)
     if not user:
         abort(404)
+
+    print(f"User found: {user['displayName']} (ID: {user_id})")
+    print(user)
 
     photo_path = user.get('profilePhoto')
     static_folder = current_app.static_folder
@@ -72,11 +83,13 @@ def user_profile(user_id):
              })
 
     # Новый блок — получение постов
+
+
     if 'posts' in user and user['posts']:
          posts = user['posts']
     else:
          posts = generate_user_posts(user_id, posts_count=10)
-         user['posts'] = posts  # опционально — чтобы в объекте пользователя появились сгенерированные посты
+         #user['posts'] = posts  # опционально — чтобы в объекте пользователя появились сгенерированные посты
 
     return render_template('index.html', user=user, friends_list=friends_list, posts=posts)
 
@@ -104,7 +117,7 @@ def generate_user_posts(user_key, posts_count=10, images_folder='static/images/p
     total_images = len(image_files)
 
     for i in range(posts_count):
-        random.seed(hash(f"{user_key}_{i}"))  # сохраняем детерминированность генерации
+        random.seed(hash(f"{user_key}_{i}"))  
 
         content_sentences = []
         for _ in range(3):
@@ -114,14 +127,14 @@ def generate_user_posts(user_key, posts_count=10, images_folder='static/images/p
         content = " ".join(content_sentences)
 
         if total_images > 0:
-            # Выбираем случайный файл, при этом seed фиксирован, значит картинка для заданного поста будет стабильной
+            # Выбираем случайный файл, при этом seed фиксирован
             image_name = random.choice(image_files)
         else:
             image_name = None
 
         posts.append({
             "content": content or "Содержимое отсутствует",
-            "date": "2025-07-10",
+            # "date": "2025-07-10",
             "image": image_name,
         })
 

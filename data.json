@@ -121,7 +121,17 @@
     "postsCount": 345,
     "languages": ["Русский", "Английский"],
     "interests": ["Программирование", "Путешествия", "Футбол"],
-    "verified": true
+    "verified": true,
+    "posts": [
+    {
+        "content": "Сегодня замечательный день для программирования!",
+        "image": "vyyy-dg-wtxWXJ35azg-unsplash.jpg"
+    },
+    {
+        "content": "Обнаружил интересную библиотеку для Python.",
+        "image": "krzhck-amdTVRmLCrk-unsplash.jpg"
+    }
+    ]
     },
     {
     "id": 2,

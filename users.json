@@ -1,143 +1,5 @@
 [
     {
-        "id": 1,
-        "username": "kolobovs1",
-        "displayName": "Светозар Колобов",
-        "firstName": "Светозар",
-        "lastName": "Колобов",
-        "middleName": "Марсович",
-        "email": "kolobovs1@example.com",
-        "phone": "+72952272963",
-        "birthDate": "1978-10-23",
-        "gender": "female",
-        "profilePhoto": "images/kolobovs1.jpg",
-        "location": {
-            "city": "к. Калачинск",
-            "country": "Россия"
-        },
-        "about": "Самостоятельно нож низкий покинуть князь даль армейский сбросить.",
-        "job": {
-            "title": "Санитар",
-            "company": "Лихачев Групп",
-            "startDate": "2008-04-18",
-            "endDate": null
-        },
-        "previousJobs": [
-            {
-                "title": "Канонир",
-                "company": "АО «Терентьев-Комаров»",
-                "startDate": "1995-03-16",
-                "endDate": "2004-06-22"
-            }
-        ],
-        "education": [
-            {
-                "institution": "Крылова Лтд университет",
-                "degree": "Бакалавр",
-                "fieldOfStudy": "Менеджмент",
-                "startYear": 1995,
-                "endYear": 2014
-            }
-        ],
-        "socialLinks": {
-            "vk": "https://vk.com/kolobovs1",
-            "facebook": "https://facebook.com/kolobovs1",
-            "instagram": "https://instagram.com/kolobovs1",
-            "twitter": "https://twitter.com/kolobovs1"
-        },
-        "website": "https://kolobovs1.ru",
-        "status": "В сети",
-        "lastOnline": "2005-01-02T12:14:47",
-        "friends": [
-            469,
-            223,
-            196,
-            209,
-            95
-        ],
-        "friendsCount": 475,
-        "postsCount": 513,
-        "languages": [
-            "Русский",
-            "Английский"
-        ],
-        "interests": [
-            "Чтение",
-            "Кино",
-            "Программирование"
-        ],
-        "verified": false
-    },
-    {
-        "id": 2,
-        "username": "ovchinnikovaa2",
-        "displayName": "Аристарх Овчинникова",
-        "firstName": "Аристарх",
-        "lastName": "Овчинникова",
-        "middleName": "Кузьминична",
-        "email": "ovchinnikovaa2@example.com",
-        "phone": "+7 203 942 3591",
-        "birthDate": "1989-09-24",
-        "gender": "male",
-        "profilePhoto": "images/ovchinnikovaa2.jpg",
-        "location": {
-            "city": "клх Поярково",
-            "country": "Россия"
-        },
-        "about": "Болото дальний сравнение подземный пропадать военный вперед прелесть валюта.",
-        "job": {
-            "title": "Вокалист",
-            "company": "Национальная нерудная компания",
-            "startDate": "2016-10-22",
-            "endDate": "2023-09-16"
-        },
-        "previousJobs": [
-            {
-                "title": "Судебный пристав",
-                "company": "ИП «Суханов, Рябова и Кабанов»",
-                "startDate": "1996-08-30",
-                "endDate": "2002-02-21"
-            }
-        ],
-        "education": [
-            {
-                "institution": "Копылова Лимитед университет",
-                "degree": "Магистр",
-                "fieldOfStudy": "Физика",
-                "startYear": 1994,
-                "endYear": 2014
-            }
-        ],
-        "socialLinks": {
-            "vk": "https://vk.com/ovchinnikovaa2",
-            "facebook": "https://facebook.com/ovchinnikovaa2",
-            "instagram": "https://instagram.com/ovchinnikovaa2",
-            "twitter": "https://twitter.com/ovchinnikovaa2"
-        },
-        "website": "https://ovchinnikovaa2.ru",
-        "status": "Занят",
-        "lastOnline": "2003-12-21T08:09:58",
-        "friends": [
-            437,
-            443,
-            482,
-            158,
-            102
-        ],
-        "friendsCount": 254,
-        "postsCount": 839,
-        "languages": [
-            "Русский",
-            "Английский"
-        ],
-        "interests": [
-            "Футбол",
-            "Кино",
-            "Музыка"
-        ],
-        "verified": false
-    },
-    {
         "id": 3,
         "username": "scherbakovaju3",
         "displayName": "Ювеналий Щербакова",
@@ -28223,7 +28085,7 @@
     {
         "id": 410,
         "username": "aleksandrovap410",
-        "displayName": "Панкрат Александрова",
+        "displayName": "Панкр Александрова",
         "firstName": "Панкрат",
         "lastName": "Александрова",
         "middleName": "Гурьевич",
@@ -28287,7 +28149,17 @@
             "Музыка",
             "Футбол"
         ],
-        "verified": true
+        "verified": true,
+        "posts": [
+        {
+            "content": "Сегодня замечательный день для программирования!",
+            "image": "vyyy-dg-wtxWXJ35azg-unsplash.jpg"
+        },
+        {
+            "content": "Обнаружил интересную библиотеку для Python.",
+            "image": "krzhck-amdTVRmLCrk-unsplash.jpg"
+        }
+    ]
     },
     {
         "id": 411,
