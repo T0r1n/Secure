@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Профиль пользователя {{ user.displayName }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 860px;
+            margin: 20px auto;
+            padding: 0 15px;
+            background: #f0f2f5;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        img.profile-photo {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #1877f2;
+            box-shadow: 0 0 10px rgba(24, 119, 242, 0.5);
+            background: #fff;
+        }
+        .cover-photo {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: -80px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .profile-info {
+            background: #fff;
+            padding: 50px 30px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            margin: 10px 0 5px;
+            font-size: 28px;
+            color: #1877f2;
+        }
+        .status {
+            font-style: italic;
+            color: #42b72a;
+            font-weight: 600;
+        }
+        .section {
+            background: #fff;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+        }
+        .section h2 {
+            border-bottom: 3px solid #1877f2;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            color: #1877f2;
+            font-size: 22px;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        a.social-link {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #1877f2;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        a.social-link:hover {
+            color: #0f4ab7;
+        }
+        .friends-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .friend-card {
+            width: 120px;
+            background: #f5f6f7;
+            border-radius: 10px;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 1px 5px rgb(0 0 0 / 0.1);
+            transition: box-shadow 0.3s;
+        }
+        .friend-card:hover {
+            box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+        }
+        .friend-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 2px solid #1877f2;
+        }
+        .friend-name {
+            font-weight: 600;
+            color: #1877f2;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+    
+</head>
+<body>
+{% include 'header.html' %}
+
+<header>
+    {% if user.coverPhoto %}
+    <img src="{{ user.coverPhoto }}" alt="Обложка {{ user.displayName }}" class="cover-photo" />
+    {% endif %}
+
+    
+    <style>
+        .cssbuttons-io {
+  position: relative;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  border-radius: 0.8em;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  color: ghostwhite;
+  overflow: hidden;
+}
+
+.cssbuttons-io svg {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.5em;
+}
+
+.cssbuttons-io span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2em 1em 0.2em 0.5em;
+}
+
+.cssbuttons-io::before,
+.cssbuttons-io::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.cssbuttons-io::before {
+  content: "";
+  background: #000;
+  width: 120%;
+  left: -10%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.cssbuttons-io:hover::before {
+  transform: translate3d(100%, 0, 0);
+}
+
+.cssbuttons-io:active {
+  transform: scale(0.95);
+}
+
+    </style>
+
+    <div class="profile-info">
+        <img src="{{ user.profilePhoto }}" alt="Фото {{ user.displayName }}" class="profile-photo" />
+        <h1>{{ user.displayName }}</h1>
+        <p>{{ user.about }}</p>
+        <p class="status">Статус: {{ user.status }}</p>
+
+        <a href="{{ url_for('error_page') }}">
+  <button class="cssbuttons-io">
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="currentColor">
+        <path d="M480,224H288V32c0-17.673-14.327-32-32-32s-32,14.327-32,32v192H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h192v192
+                 c0,17.673,14.327,32,32,32s32-14.327,32-32V288h192c17.673,0,32-14.327,32-32S497.673,224,480,224z"/>
+      </svg>
+      Добавить<br>в друзья
+    </span>
+  </button>
+</a>
+
+
+
+    <ul>
+        <li>Постов: {{ user.postsCount }}</li>
+        <li>📅Последний визит: {{ user.lastOnline[:10] }}</li>
+        <li>Подтверждённый аккаунт: {{ "✅" if user.verified else "❌" }}</li>
+    </ul>
+    </div>
+</header>
+
+<div class="section">
+    <h2>Друзья ({{ user.friendsCount }})</h2>
+    {% if friends_list %}
+    <div class="friends-list">
+        {% for friend in friends_list %}
+        <a href="{% if friend.id %}{{ url_for('user_profile', user_id=friend.id) }}{% else %}{{ url_for('block_profile') }}{% endif %}" 
+            class="friend-card" title="{{ friend.displayName }}">
+            <img src="{{ friend.profilePhoto }}" alt="Фото {{ friend.displayName }}" class="friend-photo" />
+            <div class="friend-name">{{ friend.displayName }}</div>
+        </a>
+   
+
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>У пользователя нет друзей.</p>
+    {% endif %}
+</div>
+<style>
+    .friends-list {
+    display: flex;
+    flex-wrap: wrap; /* разрешаем перенос строк */
+    gap: 20px; /* отступы между карточками */
+    justify-content: center; /* центрируем по горизонтали */
+    max-width: 860px; /* 3 карточки по 200px + отступы */
+    margin: 0 auto;
+}
+
+.friend-card {
+    flex: 0 0 180px; /* фиксированная ширина карточки */
+    background: #f5f6f7;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 1px 5px rgb(0 0 0 / 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.friend-card:hover {
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+}
+
+.friend-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #1877f2;
+}
+
+.friend-name {
+    font-weight: 600;
+    color: #1877f2;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+</style>
+
+<div class="section">
+    <h2>Контактная информация</h2>
+    <ul>
+        <li><strong>📧Email:</strong> {{ user.email }}</li>
+        <li><strong>📱Телефон:</strong> {{ user.phone }}</li>
+        <li><strong>💻Веб-сайт:</strong> 
+            {% if user.website %}
+                <a href="{{ user.website }}" target="_blank">{{ user.website }}</a>
+            {% else %}
+                Нет
+            {% endif %}
+        </li>
+        <li><strong>📍Местоположение:</strong> {{ user.location.city }}, {{ user.location.country }}</li>
+        <li><strong>🎂Дата рождения:</strong> {{ user.birthDate }}</li>
+        <li><strong>🧬Пол:</strong> {{ user.gender }}</li>
+        <li><strong>🏳️Языки:</strong> {{ user.languages | join(', ') }}</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Работа</h2>
+    <p><strong>{{ user.job.title }}</strong> в компании <strong>{{ user.job.company }}</strong></p>
+    <p>С {{ user.job.startDate }}{% if user.job.endDate %} по {{ user.job.endDate }}{% else %} — настоящее время{% endif %}</p>
+
+    {% if user.previousJobs %}
+    <h3>Предыдущие места работы</h3>
+    <ul>
+        {% for job in user.previousJobs %}
+        <li>
+            <strong>🛠️{{ job.title }}</strong> в компании <strong>{{ job.company }}</strong> 
+            ({{ job.startDate }} — {{ job.endDate if job.endDate else "настоящее время" }})
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+
+<div class="section">
+    <h2>Образование</h2>
+    <ul>
+        {% for edu in user.education %}
+        <li>
+            <strong>{{ edu.institution }}</strong> — {{ edu.degree }} по специальности {{ edu.fieldOfStudy }} ({{ edu.startYear }}–{{ edu.endYear }})
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- <div class="section">
+    <h2>Социальные сети</h2>
+    <p>
+        {% for key, link in user.socialLinks.items() %}
+            {% if link %}
+            <a href="{{ link }}" target="_blank" class="social-link">{{ key|capitalize }}</a>
+            {% endif %}
+        {% endfor %}
+    </p>
+</div> -->
+
+<div class="section">
+    <h2>Интересы</h2>
+    <ul>
+        {% for interest in user.interests %}
+            <li>💡 {{ interest }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+
+<!-- <div class="section">
+    <h2>Статистика</h2>
+    <ul>
+        <li>Друзей: {{ user.friendsCount }}</li>
+        <li>Постов: {{ user.postsCount }}</li>
+        <li>Последний визит: {{ user.lastOnline }}</li>
+        <li>Подтверждённый аккаунт: {{ "Да" if user.verified else "Нет" }}</li>
+    </ul>
+</div> -->
+
+<div class="section">
+  <h2>Посты пользователя</h2>
+  {% for post in posts %}
+  <article class="post" style="border: 1px solid #ddd; padding: 1rem; margin-bottom: 1.5rem;">
+    <p>{{ post.content }}</p>
+    {% if post.image %}
+        <img src="{{ url_for('static', filename='images/post_images/' + post.image) }}"
+       alt="Фото поста"
+       class="post-image" />
+    {% endif %}
+    <div class="post-footer" style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: #666;">
+      <small>{{ post.date }}</small>
+      <a href="/error" style="text-decoration: none;">
+        <div class="comment-react">
+          <button >
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M19.4626 3.99415C16.7809 2.34923 14.4404 3.01211 13.0344 4.06801C12.4578 4.50096 12.1696 4.71743 12 4.71743C11.8304 4.71743 11.5422 4.50096 10.9656 4.06801C9.55962 3.01211 7.21909 2.34923 4.53744 3.99415C1.01807 6.15294 0.221721 13.2749 8.33953 19.2834C9.88572 20.4278 10.6588 21 12 21C13.3412 21 14.1143 20.4278 15.6605 19.2834C23.7783 13.2749 22.9819 6.15294 19.4626 3.99415Z" stroke="#707277" stroke-width="2" stroke-linecap="round" fill="#707277"></path>
+            </svg>
+          </button>
+        </div>
+      </a>
+    </div>
+  </article>
+  {% endfor %}
+  
+  <div style="text-align: center;">
+  <a href="{{ url_for('error_page') }}" 
+     style="display: inline-block; padding: 0.5rem 1rem; font-size: 1rem; background-color: #007BFF; color: white; border-radius: 5px; text-decoration: none; cursor: pointer;">
+      Читать дальше
+  </a>
+</div>
+
+</div>
+</div>
+
+<style>
+.comment-react {
+  float: right;
+  margin: 0;
+  display: block;
+  justify-content: center;
+  padding: 5px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  scale: 1;
+  width: 35px;
+}
+
+.comment-react button {
+  width: 35px;
+  height: 35px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+}
+
+.comment-react button:after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: -3px;
+  top: -3px;
+  background-color: #000000;
+  border-radius: 50%;
+  z-index: 0;
+  transform: scale(0);
+}
+
+.comment-react button svg {
+  position: relative;
+  z-index: 9;
+}
+
+.comment-react button:after {
+  transition: transform 0.6s, opacity 0.6s;
+  transform: scale(0);
+  opacity: 0.6;
+}
+.comment-react button:hover:after {
+  transform: scale(2);
+  opacity: 0;
+}
+
+.comment-react button:hover svg {
+  fill: #000000;
+}
+
+.comment-react button svg path {
+  transition: stroke 0.3s ease, fill 0.3s ease;
+  stroke: #707277; 
+  fill: #707277;   
+}
+.comment-react button:hover svg path {
+  stroke: #616161;
+  fill: #ffffff;
+}
+
+.comment-react hr {
+  width: 80%;
+  height: 1px;
+  background-color: #dfe1e6;
+  margin: auto;
+  border: 0;
+}
+
+.comment-react span {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 20px;
+  font-weight: 600;
+  color: #707277;
+  padding-right: 10px;
+  text-align: center;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+
+</style>
+
+<style>
+    .read-more-btn {
+  display: block;
+  margin: 10px auto 0 auto;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: #007bff;
+  background: transparent;
+  border: 1px solid #007bff;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.read-more-btn:hover {
+  background-color: #007bff;
+  color: white;
+  cursor: not-allowed; /* Курсор в виде крестика при наведении */
+}
+
+
+.post-image {
+  width: 600px;       
+  height: 300px;      
+  object-fit: cover;  
+  display: block;
+  margin: 0 auto;     
+  border-radius: 8px; 
+}
+
+
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+</style>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!-- templates/header.html -->
+<header class="site-header">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap" rel="stylesheet">
+  <div class="container">
+    <div class="logo">
+      <a href="/" style='font-family: "Bitcount Grid Double", system-ui; font-size: 40px; color: rgb(0, 0, 0); text-decoration: none; cursor: pointer;'>
+      Secure
+      </a>
+
+    </div>
+    <div class="search" style="position: relative;">
+  <form action="{{ url_for('block_profile') }}" method="get">
+    <input type="text" name="q" id="user-search" placeholder="Поиск..." autocomplete="off" />
+    <!-- <button type="submit">Найти</button> -->
+  </form>
+  <ul id="user-suggestions" style="
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    max-height: 350px;
+    overflow-y: auto;
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+  "></ul>
+</div>
+    <div class="login">
+      <a href="{{ url_for('server_work') }}" class="login-button">Вход</a>
+    </div>
+  </div>
+  <style>
+    /* Стили для шапки */
+.site-header {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Логотип */
+.logo img {
+  height: 40px;
+}
+
+/* Поиск */
+.search form {
+  display: flex;
+  align-items: center;
+}
+
+.search input[type="text"] {
+  padding: 6px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  width: 250px;
+  transition: border-color 0.3s;
+}
+
+.search input[type="text"]:focus {
+  border-color: #007bff;
+}
+
+.search button {
+  padding: 7px 15px;
+  font-size: 16px;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: white;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search button:hover {
+  background-color: #0056b3;
+}
+
+/* Кнопка входа */
+.login-button {
+  padding: 8px 16px;
+  background-color: #000000;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 0.1px solid #000000;
+}
+
+
+  </style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='js/search_suggestions.js') }}"></script>
+</header>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Доступ ограничен</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .modal p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #333;
+        }
+        .btn-ok {
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-ok:hover {
+            background-color: #145dbf;
+        }
+    </style>
+</head>
+<body>
+
+<div class="modal">
+    <h2>Доступ закрыт</h2>
+    <p>Пользователь ограничил круг лиц, которые могут посещать его страницу.</p>
+    <button class="btn-ok" onclick="goBack()">ОК</button>
+</div>
+
+<script>
+    function goBack() {
+        if (document.referrer) {
+            window.history.back();
+        } else {
+            // Если нет истории, можно перенаправить на главную или другую страницу
+            window.location.href = '/';
+        }
+    }
+</script>
+
+</body>
+</html>

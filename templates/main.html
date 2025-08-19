@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="csrf" content="" id="csrf">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+
+
+	<title>Secure: Расскажи о себе</title>
+
+	
+
+
+
+	
+<link href="{{ url_for('static', filename='main_files/t-page-all.min.css') }}" rel="stylesheet" onerror="this.loaderr='y';">
+<link href="{{ url_for('static', filename='main_files/t-page-edit-all.min.css') }}" rel="stylesheet" onerror="this.loaderr='y';">
+
+	<link href="{{ url_for('static', filename='main_files/t-colorpicker.min.css') }}" type="text/css" rel="stylesheet" onerror="this.loaderr='y';">
+<link href="{{ url_for('static', filename='main_files/t-selectbox.min.css') }}" rel="stylesheet" onerror="this.loaderr='y';">
+<link href="{{ url_for('static', filename='main_files/t-previewbox.min.css') }}" rel="stylesheet" onerror="this.loaderr='y';">
+<link href="{{ url_for('static', filename='main_files/t-shadowpicker.min.css') }}" rel="stylesheet" onerror="this.loaderr='y';">
+<link href="{{ url_for('static', filename='main_files/tilda-grid-3.0.min.css') }}" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+
+
+<body style="margin:0px;" data-lang="RU" data-country="RU" data-ready-status="ready" class="tp-preview-inited tp-preview-ui-hidden">
+{% include 'header.html' %}
+  
+  <style>
+    header {
+      position: fixed;  /* фиксируем шапку относительно окна браузера */
+	top: 20px;           /* прижимаем к верхней части */
+	left: 0;
+	right: 0;
+	z-index: 9999;    /* чтобы шапка была поверх остальных элементов */
+	background-color: white; /* чтобы не было прозрачности */
+	max-width: 860px; /* ограничение ширины, если нужно */
+	margin: 0 auto;    /* центрирование */
+	padding: 0 15px;
+	box-sizing: border-box;
+    }
+  </style>
+<!-- Fixed main menu -->
+<div class="tp-menu" role="navigation" id="mainmenu">
+	<div class="tp-menu__wrapper">
+		<div class="tp-menu__left">
+			<div class="tp-menu__waves tp-menu__waves_clickable">
+			<svg xmlns="http://www.w3.org/2000/svg" width="21" height="60" viewBox="0 0 46 130" fill="none">
+				<path d="M46 73.1C45 73.8 44.2 75.2 43.2 76.9C41.7 79.6 39.9 82.8 36.1 82.8C32.3 82.8 30.5 79.6 29 76.9C27.5 74.2 26.4 72.5 24.5 72.5C22.6 72.5 21.5 74.2 20 76.9C18.5 79.6 16.7 82.8 12.9 82.8C9.1 82.8 7.3 79.6 5.8 76.9C4.3 74.2 2.9 72.5 1 72.5C0.6 72.5 0.3 72.6 0 72.7V69.6C0.3 69.5 0.7 69.5 1 69.5C4.7 69.5 6.6 72.7 8.1 75.4C9.6 78.1 10.7 79.8 12.6 79.8C14.5 79.8 15.6 78.1 17.1 75.4C18.6 72.7 20.4 69.5 24.2 69.5C28 69.5 29.8 72.7 31.3 75.4C32.9 78.2 33.9 79.8 35.8 79.8C37.7 79.8 38.8 78.1 40.3 75.4C41.6 73.1 43.1 70.3 46 69.7V73.1Z" fill="black"></path>
+				<path d="M46 59.8C45 60.5 44.2 61.9 43.2 63.6C41.7 66.3 39.9 69.5 36.1 69.5C32.3 69.5 30.5 66.3 29 63.6C27.5 60.9 26.4 59.2 24.5 59.2C22.6 59.2 21.5 60.9 20 63.6C18.5 66.3 16.7 69.5 12.9 69.5C9.1 69.5 7.3 66.3 5.8 63.6C4.3 60.9 2.9 59.2 1 59.2C0.6 59.2 0.3 59.3 0 59.4V56.3C0.3 56.2 0.7 56.2 1 56.2C4.7 56.2 6.6 59.4 8.1 62.1C9.6 64.8 10.7 66.5 12.6 66.5C14.5 66.5 15.6 64.8 17.1 62.1C18.6 59.4 20.4 56.2 24.2 56.2C28 56.2 29.8 59.4 31.3 62.1C32.9 64.9 33.9 66.5 35.8 66.5C37.7 66.5 38.8 64.8 40.3 62.1C41.6 59.8 43.1 57 46 56.4V59.8Z" fill="black"></path>
+				<path d="M46 46.5C45 47.2 44.2 48.6 43.2 50.3C41.7 53 39.9 56.2 36.1 56.2C32.3 56.2 30.5 53 29 50.3C27.5 47.6 26.4 45.9 24.5 45.9C22.6 45.9 21.5 47.6 20 50.3C18.5 53 16.7 56.2 12.9 56.2C9.1 56.2 7.3 53 5.8 50.3C4.3 47.6 2.9 45.9 1 45.9C0.6 45.9 0.3 46 0 46.1V43C0.3 42.9 0.7 42.9 1 42.9C4.7 42.9 6.6 46 8.1 48.8C9.6 51.6 10.7 53.2 12.6 53.2C14.5 53.2 15.6 51.5 17.1 48.8C18.6 46.1 20.4 42.9 24.2 42.9C28 42.9 29.8 46.1 31.3 48.8C32.9 51.6 33.9 53.2 35.8 53.2C37.7 53.2 38.8 51.5 40.3 48.8C41.6 46.5 43.1 43.7 46 43.1V46.5Z" fill="black"></path>
+				<path d="M46 33.2C45 33.9 44.2 35.3 43.2 37C41.7 39.7 39.9 42.9 36.1 42.9C32.3 42.9 30.5 39.7 28.9 37C27.3 34.3 26.3 32.6 24.4 32.6C22.5 32.6 21.4 34.3 19.9 37C18.4 39.7 16.6 42.9 12.8 42.9C9 42.9 7.1 39.8 5.5 37C3.9 34.2 2.9 32.6 1 32.6C0.6 32.6 0.3 32.7 0 32.8V29.7C0.3 29.6 0.7 29.6 1 29.6C4.8 29.6 6.6 32.7 8.1 35.5C9.6 38.3 10.7 39.9 12.6 39.9C14.5 39.9 15.6 38.2 17.1 35.5C18.6 32.8 20.4 29.6 24.2 29.6C28 29.6 29.8 32.8 31.3 35.5C32.9 38.3 33.9 39.9 35.8 39.9C37.7 39.9 38.8 38.2 40.3 35.5C41.6 33.2 43.1 30.4 46 29.8V33.2Z" fill="black"></path>
+				<path d="M39.8 130C40.1 129.6 40.3 129.1 40.6 128.6C41.9 126.3 43.3 123.7 46 122.9V126.2C45 126.9 44.2 128.2 43.3 129.9L39.8 130Z" fill="black"></path>
+				<path d="M16.5 130C16.8 129.6 17 129.1 17.3 128.6C18.8 125.9 20.6 122.7 24.4 122.7C28.2 122.7 30 125.9 31.5 128.6C31.8 129.1 32.1 129.6 32.3 130H28.9C27.4 127.3 26.3 125.7 24.5 125.7C22.6 125.7 21.5 127.4 20.1 130H16.5Z" fill="black"></path>
+				<path d="M0 122.8C0.4 122.7 0.8 122.7 1.2 122.7C5 122.7 6.8 125.9 8.3 128.6C8.6 129.1 8.9 129.6 9.1 130H5.6C4.1 127.3 3 125.7 1.2 125.7C0.8 125.7 0.4 125.8 0 126L0 122.8Z" fill="black"></path>
+				<path d="M46 113C45 113.7 44.2 115.1 43.2 116.8C41.7 119.5 39.9 122.7 36.1 122.7C32.3 122.7 30.5 119.5 29 116.8C27.5 114.1 26.4 112.4 24.5 112.4C22.6 112.4 21.5 114.1 20 116.8C18.5 119.5 16.7 122.7 12.9 122.7C9.1 122.7 7.3 119.5 5.8 116.8C4.3 114.1 3.2 112.4 1.3 112.4C0.8 112.4 0.4 112.5 0 112.7V109.5C0.4 109.4 0.8 109.4 1.3 109.4C5 109.4 6.9 112.6 8.4 115.3C9.9 118 11 119.7 12.9 119.7C14.8 119.7 15.9 118 17.4 115.3C18.9 112.6 20.7 109.4 24.5 109.4C28.3 109.4 30.1 112.6 31.6 115.3C33.2 118.1 34.2 119.7 36.1 119.7C38 119.7 39.1 118 40.6 115.3C41.9 113 43.3 110.4 46 109.6V113Z" fill="black"></path>
+				<path d="M0 96.2C0.3 96.1 0.6 96.1 1 96.1C4.7 96.1 6.6 99.3 8.1 102C9.6 104.7 10.7 106.4 12.6 106.4C14.5 106.4 15.6 104.7 17.1 102C18.6 99.3 20.4 96.1 24.2 96.1C28 96.1 29.8 99.3 31.3 102C32.9 104.8 33.9 106.4 35.8 106.4C37.7 106.4 38.8 104.7 40.3 102C41.6 99.7 43.1 96.9 46 96.3V99.7C45 100.4 44.2 101.8 43.2 103.5C41.7 106.2 39.9 109.4 36.1 109.4C32.3 109.4 30.5 106.2 29 103.5C27.5 100.8 26.4 99.1 24.5 99.1C22.6 99.1 21.5 100.8 20 103.5C18.5 106.2 16.7 109.4 12.9 109.4C9.1 109.4 7.3 106.2 5.8 103.5C4.3 100.8 2.9 99.1 1 99.1C0.6 99.1 0.3 99.2 0 99.3L0 96.2Z" fill="black"></path>
+				<path d="M46 86.4C45 87.1 44.2 88.5 43.2 90.2C41.7 92.9 39.9 96.1 36.1 96.1C32.3 96.1 30.5 93 28.9 90.2C27.3 87.4 26.3 85.8 24.4 85.8C22.5 85.8 21.4 87.5 19.9 90.2C18.4 92.9 16.6 96.1 12.8 96.1C9 96.1 7.1 93 5.5 90.2C3.9 87.4 2.9 85.8 1 85.8C0.6 85.8 0.3 85.9 0 86V82.9C0.3 82.8 0.7 82.8 1 82.8C4.8 82.8 6.6 86 8.1 88.7C9.6 91.4 10.7 93.1 12.6 93.1C14.5 93.1 15.6 91.4 17.1 88.7C18.6 86 20.4 82.8 24.2 82.8C28 82.8 29.8 86 31.3 88.7C32.9 91.5 33.9 93.1 35.8 93.1C37.7 93.1 38.8 91.4 40.3 88.7C41.6 86.4 43.1 83.6 46 83V86.4Z" fill="black"></path>
+				<path d="M0 16.4C0.3 16.3 0.7 16.3 1 16.3C4.7 16.3 6.6 19.4 8.1 22.2C9.6 25 10.7 26.6 12.6 26.6C14.5 26.6 15.6 24.9 17.1 22.2C18.6 19.5 20.4 16.3 24.2 16.3C28 16.3 29.8 19.4 31.3 22.2C33 25 34 26.6 36 26.6C38 26.6 39 24.9 40.5 22.2C41.8 19.9 43.3 17.3 46 16.5V19.9C45 20.6 44.2 22 43.2 23.7C41.7 26.4 39.9 29.6 36.1 29.6C32.3 29.6 30.5 26.5 29 23.7C27.5 20.9 26.4 19.3 24.5 19.3C22.6 19.3 21.5 21 20 23.7C18.5 26.4 16.7 29.6 12.9 29.6C9.1 29.6 7.3 26.5 5.8 23.7C4.3 20.9 2.9 19.3 1 19.3C0.6 19.3 0.3 19.4 0 19.5L0 16.4Z" fill="black"></path>
+				<path d="M46 6.5C45 7.2 44.1 8.6 43.1 10.4C41.6 13.1 39.8 16.3 36 16.3C32.2 16.3 30.4 13.2 28.9 10.4C27.4 7.6 26.2 6 24.3 6C22.4 6 21.3 7.7 19.8 10.4C18.3 13.1 16.5 16.3 12.7 16.3C8.9 16.3 7.1 13.2 5.6 10.4C4.1 7.6 2.9 6 1 6C0.6 6 0.3 6.1 0 6.2V3.1C0.3 3 0.7 3 1 3C4.8 3 6.6 6.1 8.1 8.9C9.6 11.7 10.7 13.3 12.6 13.3C14.5 13.3 15.6 11.6 17.1 8.9C18.6 6.2 20.5 3 24.3 3C28.1 3 29.9 6.2 31.4 8.9C33 11.7 34 13.3 35.9 13.3C37.8 13.3 38.9 11.6 40.4 8.9C41.7 6.6 43.2 4 46 3.2V6.5Z" fill="black"></path>
+				<path d="M17.9999 0C16.7999 1.7 15.0999 3 12.6999 3C10.2999 3 8.5999 1.7 7.3999 0H17.9999Z" fill="black"></path>
+				<path d="M41.4 0C40.1 1.7 38.5 3 36 3C33.6 3 31.9 1.7 30.7 0H41.4Z" fill="black"></path>
+			</svg>
+		</div>
+			
+		<div class="tp-menu__breadcrumbs">
+			
+		
+	
+			
+		<div class="tp-menu__breadcrumbs__item-wrapper tp-menu__project">
+			<div class="tp-menu__breadcrumbs__divider">/</div>
+			<a href="https://tilda.ru/projects/?projectid=13860609" class="tp-menu__breadcrumbs__item">
+				<div class="tp-menu__item__icon">
+					
+			<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+				<path d="M7.5 14C7.5 14 4.46667 13.2503 4.46667 7.5C4.46667 1.74971 7.5 1 7.5 1M7.5 14C7.5 14 10.5333 13.1333 10.5333 7.5C10.5333 1.86667 7.5 1 7.5 1M7.5 14C4.51041 14 1.99221 11.9817 1.23367 9.23333M7.5 14C10.4896 14 13.0078 11.9817 13.7663 9.23333M7.5 14V1M7.5 1C4.51041 1 1.99221 3.0183 1.23367 5.76667M7.5 1C10.4896 1 13.0078 3.0183 13.7663 5.76667M1.23367 5.76667C1.08136 6.31849 1 6.89974 1 7.5C1 8.10026 1.08136 8.68151 1.23367 9.23333M1.23367 5.76667H13.7663M13.7663 5.76667C13.9186 6.31849 14 6.89974 14 7.5C14 8.10026 13.9186 8.68151 13.7663 9.23333M1.23367 9.23333H13.7663" stroke="black"></path>
+			</svg>
+		
+				</div>
+				<div class="tp-menu__item__text">Secure</div>
+			</a>
+		</div>
+	
+			
+			
+		
+	
+		</div>
+	
+		</div>
+		<div class="tp-menu__middle">
+            <button class="tp-view__dropdown-toggle t-button dropdown-toggle"></button>
+            <button class="tp-view__toggle t-button" data-type="mobile">
+                
+			<svg width="20" height="32" viewBox="0 0 20 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00002 9.19961H14L14 22.7996L6.00002 22.7996L6.00002 9.19961L6.00002 9.19961ZM4.40002 9.19961C4.40002 8.31595 5.11637 7.59961 6.00002 7.59961H14C14.8837 7.59961 15.6 8.31595 15.6 9.19961V22.7996C15.6 23.6833 14.8837 24.3996 14 24.3996H6.00002C5.11637 24.3996 4.40002 23.6833 4.40002 22.7996V9.19961ZM10.1633 11.5996C10.5176 11.5996 10.8045 11.3117 10.8033 10.9574L10.8022 10.6374C10.801 10.2848 10.5149 9.99961 10.1622 9.99961H9.84013C9.48666 9.99961 9.20013 10.2861 9.20013 10.6396V10.9596C9.20013 11.3131 9.48666 11.5996 9.84013 11.5996H10.1633Z" fill="black"></path>
+			</svg>
+		
+            </button>
+            <button class="tp-view__toggle t-button tp-view__toggle_checked" data-type="desktop">
+                
+			<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M5.60038 7.99941H26.4004V22.3994L5.60038 22.3994L5.60038 7.99941ZM4.00038 7.99942C4.00038 7.11576 4.71672 6.39941 5.60038 6.39941H26.4004C27.284 6.39941 28.0004 7.11576 28.0004 7.99941V22.3994C28.0004 23.2831 27.284 23.9994 26.4004 23.9994H5.60038C4.71672 23.9994 4.00038 23.2831 4.00038 22.3994V7.99942ZM2.39998 25.9998C1.95815 25.9998 1.59998 26.358 1.59998 26.7998C1.59998 27.2416 1.95815 27.5998 2.39998 27.5998H29.6C30.0418 27.5998 30.4 27.2416 30.4 26.7998C30.4 26.358 30.0418 25.9998 29.6 25.9998H2.39998Z" fill="black"></path>
+			</svg>
+		
+            </button>
+        </div>
+		<div class="tp-menu__right">
+			<ul class="tp-menu__navbar">
+				<li class="tp-menu__navbar__item tp-menu__navbar__item_mobile tp-menu__navbar__item_undo">
+					
+						<button class="t-button tp-menu__navbar__button" type="button" data-action="undo">
+							
+			<svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M17 13.8496C17 11.8496 15.516 6.84961 10.5 6.84961C7.016 6.84961 5.016 10.3496 3.5 12.3496M3.5 12.3496L3 7.34961M3.5 12.3496L8 11.8496" stroke="black" stroke-width="1.6" stroke-linecap="round"></path>
+			</svg>
+		
+						</button>
+					
+				</li>
+			
+				<li class="tp-menu__navbar__item tp-menu__navbar__item_mobile tp-menu__navbar__item_redo">
+					
+						<button class="t-button tp-menu__navbar__button" type="button" data-action="redo" disabled="disabled">
+							
+			<svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M1 13.5C1 11.5 2.484 6.5 7.5 6.5C10.984 6.5 12.984 10 14.5 12M14.5 12L15 7M14.5 12L10 11.5" stroke="black" stroke-width="1.6" stroke-linecap="round"></path>
+			</svg>
+		
+						</button>
+					
+				</li>
+			
+				<li class="tp-menu__navbar__item tp-menu__navbar__item_hide_ui">
+					
+						<button class="t-button tp-menu__navbar__button" type="button" data-action="hide_ui">
+							
+			<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0668 7.36633L14.0575 5.3756L12.3052 3.58398H16.7947L16.8621 8.07421L15.0031 6.32128L13.0123 8.31188L12.0668 7.36633ZM7.93323 7.37805L5.9425 5.38732L7.69482 3.5957H3.20532L3.13794 8.08593L4.99695 6.333L6.98767 8.3236L7.93323 7.37805ZM14.0575 14.6142L12.0668 12.6234L13.0123 11.6779L15.0031 13.6685L16.8621 11.9156L16.7947 16.4058H12.3052L14.0575 14.6142ZM7.93323 12.6352L5.9425 14.6259L7.69482 16.4175H3.20532L3.13794 11.9273L4.99695 13.6802L6.98767 11.6896L7.93323 12.6352Z" fill="black"></path>
+			</svg>
+		
+						</button>
+					
+				</li>
+			
+				
+			
+				<li class="tp-menu__navbar__item tp-menu__navbar__item_mobile_only">
+					
+						<button class="t-button tp-menu__navbar__button" type="button" data-action="preview">
+							
+			<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M14.25 9.13552C14.9167 9.52042 14.9167 10.4827 14.25 10.8676L6.75 15.1977C6.08333 15.5826 5.25 15.1015 5.25 14.3317L5.25 5.67141C5.25 4.90161 6.08333 4.42049 6.75 4.80539L14.25 9.13552Z" fill="black"></path>
+			</svg>
+		
+						</button>
+					
+				</li>
+			
+				<li class="tp-menu__navbar__item tp-menu__navbar__item_mobile_only">
+					
+						<button class="t-button tp-menu__navbar__button" type="button" data-action="publish">
+							
+			<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M5.08112 16.8747C5.05412 16.8751 5.02707 16.8753 4.99997 16.8753C2.23853 16.8753 -6.10352e-05 14.9165 -6.10352e-05 12.5002C-6.10352e-05 10.4293 1.64436 8.69448 3.85299 8.24087C4.38649 5.33054 6.93587 3.125 10.0004 3.125C13.452 3.125 16.2502 5.92298 16.2504 9.37457C18.3213 9.37477 20.0001 11.0536 20.0001 13.1246C20.0001 15.1957 18.3211 16.8746 16.25 16.8746H16.2493V16.8747H11.0009V12.9375H13.1099C13.455 12.9375 13.6381 12.5297 13.4088 12.2718L10.2996 8.77383C10.1405 8.59483 9.86076 8.59483 9.70165 8.77383L6.59238 12.2718C6.36309 12.5297 6.54621 12.9375 6.89135 12.9375H9.00085V16.8747H5.08112Z" fill="black"></path>
+			</svg>
+		
+						</button>
+					
+				</li>
+			
+				<li class="tp-menu__navbar__item tp-menu__navbar__item_mobile_only tp-menu__navbar__item_burger">
+					
+						<button class="t-button tp-menu__navbar__button" type="button" data-action="burger">
+							
+			<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M3 7H23" stroke="black" stroke-width="1.3" stroke-linecap="round"></path>
+				<path d="M3 13H23" stroke="black" stroke-width="1.3" stroke-linecap="round"></path>
+				<path d="M3 19H23" stroke="black" stroke-width="1.3" stroke-linecap="round"></path>
+			</svg>
+		
+						</button>
+					
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!--/// Fixed main menu -->
+
+
+<div id="for_redactor_toolbar" class="hidden"></div>
+
+</div>
+		<div class="tp-library__tpls-list-body" id="tplslist25" data-tpls-for-type="25">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist8" data-tpls-for-type="8">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist2" data-tpls-for-type="2">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	
+
+			
+				<div class="tp-library__subtype-list-body">
+					<div class="tp-library__subtype-list-header">
+						
+						<span onclick="tp__library__rightside__scrollSmooth('subtypetext')" class="tp-library__subtype__tab">
+							Текст
+						</span>
+					
+						<span class="tp-library__subtype__tab tp-library__subtype__tab_active">
+							Ключевая фраза
+						</span>
+					
+						<span onclick="tp__library__rightside__scrollSmooth('subtypedirect_speech')" class="tp-library__subtype__tab">
+							Прямая речь
+						</span>
+					
+					</div>
+					
+				</div>
+			
+				
+			</div>
+		<div class="tp-library__tpls-list-body" id="tplslist10" data-tpls-for-type="10">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist21" data-tpls-for-type="21">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist20" data-tpls-for-type="20">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	
+				
+					
+			
+				
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist41" data-tpls-for-type="41">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	
+		<div class="tp-library__tpls-list-body" id="tplslist26" data-tpls-for-type="26">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist16" data-tpls-for-type="16">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist17" data-tpls-for-type="17">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist24" data-tpls-for-type="24">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist6" data-tpls-for-type="6">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist7" data-tpls-for-type="7">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist23" data-tpls-for-type="23">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist19" data-tpls-for-type="19">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	<div class="tp-library__tpls-list-body__container"><div class="tp-library__tpl-body " data-tpl-id="1088" data-tpl-locked="yes" style="display:none;"><div class="tp-library__tpl-wrapper" style="opacity:0.5"><div style="position:relative;" class="tp-library__tpl-secwrapper"><div style="width:320px; padding-left:10px; padding-right:10px;margin-bottom:10px; text-align:center;" class="tp-library__tpl-thirdwrapper"><div class="tp-library__tpl-favoriteicon-add"><svg style="display:block;" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 0L8.45833 5.08696H14L9.625 8.19565L11.375 13L7 9.8913L2.625 13L4.375 8.19565L0 5.08696H5.25L7 0Z" fill="black"></path></svg></div><div class="tp-library__tpl-icon__wrapper"></div><div class="tp-library__tpl-bottom-wrapper"><div class="tp-library__tpl-caption"><span class="tp-library__tpl-cod"><svg class="tp-library__tpl-lock" xmlns="http://www.w3.org/2000/svg" width="11.396" height="14.21" viewBox="-630.583 702.11 11.396 14.21" xml:space="preserve"><path d="M-629.537 708.977h9v5.84h-9z"></path><path d="M-621.827 710.439h-6.419v-3.316c0-1.77 1.44-3.21 3.209-3.21s3.21 1.44 3.21 3.21v3.316zm-4.92-1.5h3.419v-1.816c0-.943-.767-1.71-1.71-1.71-.942 0-1.709.767-1.709 1.71v1.816z"></path></svg>T1088</span>&nbsp;&nbsp;<span class="tp-library__tpl-title">T1088 Denis Lebedev&nbsp;&nbsp;</span></div></div></div></div></div></div></div></div>
+		<div class="tp-library__tpls-list-body" id="tplslist18" data-tpls-for-type="18">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist4" data-tpls-for-type="4">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	
+		<div class="tp-library__tpls-list-body" id="tplslist29" data-tpls-for-type="29">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist27" data-tpls-for-type="27">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist28" data-tpls-for-type="28">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist30" data-tpls-for-type="30">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist31" data-tpls-for-type="31">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__alternative-body">
+			<div class="tp-library__alternative-header">
+				Похожее
+			</div>
+			<div class="tp-library__tpls-list-body__container">
+			
+			</div>
+		</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist39" data-tpls-for-type="39">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist32" data-tpls-for-type="32">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+		<div class="tp-library__tpls-list-body" id="tplslist33" data-tpls-for-type="33">
+			<div class="tp-library__tpls-list-body-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.571" height="19.571" viewBox="0 0 19.571 19.571" style="enable-background:new 0 0 19.571 19.571" xml:space="preserve">
+					<path d="m18.8639569.0004043.7071.7071L.7070431 19.5715181l-.7071-.7071z"></path>
+					<path d="m.7071431.0005043 18.8640138 18.8640138-.7071.7071L.0000431.7076043z"></path>
+				</svg>
+			</div>
+	</div>
+
+<div id="editforms" class="pe-container hidden"></div>
+
+<div id="editformsxl" class="hidden"></div>
+
+<div id="closelayer" class="hidden"></div>
+
+<div class="td-popup" id="popup_pagesettings">
+	<div class="td-popup__wrap">
+		<div class="td-popup-window">
+		</div>
+	</div>
+</div>
+
+<!--allrecords-->
+
+	</div></div>  </div><div class="record" id="record1148307856" recordid="1148307856" off="n" data-record-type="948" data-record-category="30" data-record-cod="HW405" data-ai-tpl="y"><div class="t-record-container"><div id="rec1148307856" class="r t-rec t-rec_pt_135 t-rec_pt-res-480_90 t-rec_pb_135 t-rec_pb-res-480_90" style="padding-top:135px;padding-bottom:135px; background-color:#f4faf5;" data-animationappear="off" data-bg-color="#f4faf5"> <!-- t948 --> <div class="t948"> <div class="t-section__container t-container t-container_flex"> <div class="t-col t-col_12 "> <div class="t-section__title t-title t-title_xs t-align_center t-margin_auto" field="btitle">
+Как начать пользоваться социальной сетью
+</div> <div class="t-section__descr t-descr t-descr_xl t-align_center t-margin_auto" field="bdescr">
+Зарегистрируйтесь на нашем сайте и создайте свой персонализированный 
+профиль, который будет содержать всю необходимую информацию о вас и 
+ваших интересах
+</div> </div> </div> <style>.t-section__descr {max-width:560px;}#rec1148307856 .t-section__title {margin-bottom:40px;}#rec1148307856 .t-section__descr {margin-bottom:120px;}#rec1148307856 .t-section__container:not(:has(.t-section__descr)) .t-section__title {margin-bottom:120px;}@media screen and (max-width:960px) { .t-section__title {margin-bottom:20px;}#rec1148307856 .t-section__descr {margin-bottom:65px;}#rec1148307856 .t-section__container:not(:has(.t-section__descr)) .t-section__title {margin-bottom:65px;}}</style> <style> #rec1148307856 .t-section__title{--tilda-typo-hook:yes;color:#000000;}#rec1148307856 .t-section__descr{--tilda-typo-hook:yes;color:#000000;max-width:754px;}</style> <div class="t-container t-helper-container" data-column-helper-recid="1148307856" data-column-helper-columns-in-row="3"> <div class="t948__row"> <div class="t-item t-column-draggable t948__col t-col t-col_4" style="" data-column-id="1417094636330"> <div class="t948__content"> <div class="t948__textwrapper" style=" border: 1px solid transparent; background-color: #ffffff;"> <div class="t948__circle" style=" border-color: #000000; "> <div class="t948__number t-name t-name_md" style="color: #000000;"></div> </div> <div class="t948__title t-name t-name_md" field="li_title__1417094636330"><span style="text-align: left;">Регистрация</span></div> <div class="t948__descr t-text t-text_xs" field="li_descr__1417094636330">Заполните регистрационную форму и создайте аккаунт.</div> </div> </div> </div> <div class="t-item t-column-draggable t948__col t-col t-col_4" style="" data-column-id="1417094636331"> <div class="t948__content"> <div class="t948__textwrapper" style=" border: 1px solid transparent; background-color: #ffffff;"> <div class="t948__circle" style=" border-color: #000000; "> <div class="t948__number t-name t-name_md" style="color: #000000;"></div> </div> <div class="t948__title t-name t-name_md" field="li_title__1417094636331">Создание профиля</div> <div class="t948__descr t-text t-text_xs" field="li_descr__1417094636331">Добавьте информацию о себе и загрузите фотографии.</div> </div> </div> </div> <div class="t-item t-column-draggable t948__col t-col t-col_4" style="" data-column-id="1417094636332"> <div class="t948__content"> <div class="t948__textwrapper" style=" border: 1px solid transparent; background-color: #ffffff;"> <div class="t948__circle" style=" border-color: #000000; "> <div class="t948__number t-name t-name_md" style="color: #000000;"></div> </div> <div class="t948__title t-name t-name_md" field="li_title__1417094636332">Просмотр профилей</div> <div class="t948__descr t-text t-text_xs" field="li_descr__1417094636332">Изучайте профили других пользователей и узнавайте о них больше.</div> </div> </div> </div> </div> </div> </div> <style> #rec1148307856 .t948__title{--tilda-typo-hook:yes;color:#000000;}#rec1148307856 .t948__uptitle{--tilda-typo-hook:yes;}#rec1148307856 .t948__descr{--tilda-typo-hook:yes;color:#000000;}</style> <style> #rec1148307856 .t948__textwrapper{border-radius:15px;}</style> </div></div>  </div><div class="record" id="record1148307861" recordid="1148307861" off="n" data-record-type="772" data-record-category="23" data-record-cod="TE220" data-ai-tpl="y"><div class="t-record-container"><div id="rec1148307861" class="r t-rec t-rec_pt_135 t-rec_pt-res-480_90 t-rec_pb_135 t-rec_pb-res-480_90" style="padding-top:135px;padding-bottom:135px; background-color:#ffffff;" data-animationappear="off" data-bg-color="#ffffff"> <!-- T772 --> <div class="t772"> <div class="t-section__container t-container t-container_flex"> <div class="t-col t-col_12 "> <div class="t-section__title t-title t-title_xs t-align_center t-margin_auto" field="btitle">
+Социальная сеть: разнообразие профилей
+</div> <div class="t-section__descr t-descr t-descr_xl t-align_center t-margin_auto" field="bdescr">
+Платформа для представления себя и своих интересов. Здесь каждый может поделиться своими достижениями и увлечениями.
+</div> </div> </div> <style>.t-section__descr {max-width:560px;}#rec1148307861 .t-section__title {margin-bottom:40px;}#rec1148307861 .t-section__descr {margin-bottom:90px;}#rec1148307861 .t-section__container:not(:has(.t-section__descr)) .t-section__title {margin-bottom:90px;}@media screen and (max-width:960px) { .t-section__title {margin-bottom:20px;}#rec1148307861 .t-section__descr {margin-bottom:60px;}#rec1148307861 .t-section__container:not(:has(.t-section__descr)) .t-section__title {margin-bottom:60px;}}</style> <style> #rec1148307861 .t-section__title{--tilda-typo-hook:yes;color:#000000;}#rec1148307861 .t-section__descr{--tilda-typo-hook:yes;color:#000000;max-width:832px;}</style> <div class="t772__wrapper t-card__container t772__container t772__container_mobile-grid t-helper-container" data-column-helper-recid="1148307861" data-column-helper-columns-in-row="2"> <div class="t-card__col t-column-draggable t-card__col_withoutbtn t772__col t-col t-col_6 t-align_left t-item t772__col_mobile-grid" data-column-id="4077826484970"> <div class="t772__content"> <div class="t772__imgwrapper " style="padding-bottom:64.285714285714%;"> <div class="t772__bgimg t-bgimg" data-original="https://static.tildacdn.com/tild6664-3462-4836-b232-646565313863/photo-1634818117851-.jpg" bgimgfield="li_img__4077826484970" style="background-image:url('https://static.tildacdn.com/tild6664-3462-4836-b232-646565313863/photo-1634818117851-.jpg');" data-tu-max-width="700" itemscope="" itemtype="http://schema.org/ImageObject" id="tuwidget628126" data-tu-noclick="yes"> <meta itemprop="image" content="https://static.tildacdn.com/tild6664-3462-4836-b232-646565313863/photo-1634818117851-.jpg"> </div> <input type="file" class="tu-hidden-input" accept="image/*" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"></div> <div class="t772__textwrapper"> <style> #rec1148307861 .t-card__title{--tilda-typo-hook:yes;color:#000000;}#rec1148307861 .t-card__descr{--tilda-typo-hook:yes;color:#000000;}</style> <div class="t-card__title t-name t-name_xl" field="li_title__4077826484970" data-redactor-nohref="yes">
+Творческий профиль
+</div> <div class="t-card__descr t-descr t-descr_xxs" field="li_descr__4077826484970" data-redactor-nohref="yes">
+Пользователь с портфолио работ, фотографиями и информацией об интересах в искусстве и культуре.
+</div> </div> </div> </div> <div class="t-card__col t-column-draggable t-card__col_withoutbtn t772__col t-col t-col_6 t-align_left t-item t772__col_mobile-grid" data-column-id="4077826484971"> <div class="t772__content"> <div class="t772__imgwrapper " style="padding-bottom:64.285714285714%;"> <div class="t772__bgimg t-bgimg" data-original="https://static.tildacdn.com/tild3633-3661-4265-b136-383032663263/photo-1646092970097-.jpg" bgimgfield="li_img__4077826484971" style="background-image:url('https://static.tildacdn.com/tild3633-3661-4265-b136-383032663263/photo-1646092970097-.jpg');" data-tu-max-width="700" itemscope="" itemtype="http://schema.org/ImageObject" id="tuwidget981288" data-tu-noclick="yes"> <meta itemprop="image" content="https://static.tildacdn.com/tild3633-3661-4265-b136-383032663263/photo-1646092970097-.jpg"> </div> <input type="file" class="tu-hidden-input" accept="image/*" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"></div> <div class="t772__textwrapper"> <style> #rec1148307861 .t-card__title{--tilda-typo-hook:yes;color:#000000;}#rec1148307861 .t-card__descr{--tilda-typo-hook:yes;color:#000000;}</style> <div class="t-card__title t-name t-name_xl" field="li_title__4077826484971" data-redactor-nohref="yes">
+Профессиональный профиль
+</div> <div class="t-card__descr t-descr t-descr_xxs" field="li_descr__4077826484971" data-redactor-nohref="yes">
+Пользователь с информацией о карьере, достижениях и профессиональных навыках.
+</div> </div> </div> <div class="tp-record-ui__column-helper-wrapper tp-record-ui__column-helper-wrapper--horizontal tp-record-ui__column-helper-wrapper--hidden">
+			
+		
+			
+			
+			
+			
+		
+
+
+<!--/allrecords-->
+
+
+		<span class="dropdown-arrow"></span>
+
+			<span>FR102N</span>
+			<span class="dropdown-arrow"></span>
+		
+		</button></div></div><div class="tp-record-ui__row"><div class="tp-record-ui__title">Список с иконками</div></div></div><div class="tp-record-ui__container tp-record-ui__container_top tp-record-ui__container_right"><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_ai"></span></button></div><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_duplicate"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_delete"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_hide"></span></button><button class="tp-record-ui__button tp-record-ui__button_white"><span class="dropdown-arrow"></span></button></div><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_up"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_down"></span></button></div></div><div class="tp-record-ui__container tp-record-ui__container_bottom tp-record-ui__container_left"><div class="tp-record-ui__group tp-record-ui__group_opacity"><button class="tp-record-ui__button tp-record-ui__button_bg tcolors" data-recordid="1148307831" style="background: rgb(255, 255, 255);"></button></div></div></div></div><div class="tp-record-ui__borders"><div class="tp-record-ui__border tp-record-ui__border_top"></div><div class="tp-record-ui__border tp-record-ui__border_bottom"></div></div><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__button_add-top tp-record-ui__tooltip"></button><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__tooltip"></button><div class="tp-record-ui__overlay"></div></div><div class="tp-record-ui hidden" style="height: 65px;"><div class="tp-record-ui__buttons tp-record-ui__buttons_sticky"><div class="tp-record-ui__buttons-inner"><div class="tp-record-ui__container tp-record-ui__container_top tp-record-ui__container_left"><div class="tp-record-ui__row"></div></div><div class="tp-record-ui__container tp-record-ui__container_top tp-record-ui__container_right"><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_duplicate"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_delete"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_hide"></span></button><button class="tp-record-ui__button tp-record-ui__button_white"><span class="dropdown-arrow"></span></button></div><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_up"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_down"></span></button></div></div><div class="tp-record-ui__container tp-record-ui__container_bottom tp-record-ui__container_left"><div class="tp-record-ui__group tp-record-ui__group_opacity"></div></div></div></div><div class="tp-record-ui__borders"><div class="tp-record-ui__border tp-record-ui__border_top tp-record-ui__border_disabled"></div><div class="tp-record-ui__border tp-record-ui__border_bottom tp-record-ui__border_disabled"></div></div><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__button_add-top tp-record-ui__tooltip"></button><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__tooltip"></button><div class="tp-record-ui__overlay"></div></div><div class="tp-record-ui hidden" style="height: 65px;"><div class="tp-record-ui__buttons tp-record-ui__buttons_sticky"><div class="tp-record-ui__buttons-inner"><div class="tp-record-ui__container tp-record-ui__container_top tp-record-ui__container_left"><div class="tp-record-ui__row"></div></div><div class="tp-record-ui__container tp-record-ui__container_top tp-record-ui__container_right"><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_duplicate"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_delete"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_hide"></span></button><button class="tp-record-ui__button tp-record-ui__button_white"><span class="dropdown-arrow"></span></button></div><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_up"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_down"></span></button></div></div><div class="tp-record-ui__container tp-record-ui__container_bottom tp-record-ui__container_left"><div class="tp-record-ui__group tp-record-ui__group_opacity"></div></div></div></div><div class="tp-record-ui__borders"><div class="tp-record-ui__border tp-record-ui__border_top tp-record-ui__border_disabled"></div><div class="tp-record-ui__border tp-record-ui__border_bottom tp-record-ui__border_disabled"></div></div><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__button_add-top tp-record-ui__tooltip"></button><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__tooltip"></button><div class="tp-record-ui__overlay"></div></div><div class="tp-record-ui hidden" style="height: 889.167px;"><div class="tp-record-ui__buttons tp-record-ui__buttons_sticky"><div class="tp-record-ui__buttons-inner"><div class="tp-record-ui__container tp-record-ui__container_top tp-record-ui__container_left"><div class="tp-record-ui__row"><div class="tp-record-ui__group tp-record-ui__group_tpl"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__button_tpl">
+			<span>HW405</span>
+			<span class="dropdown-arrow"></span>
+		
+		</button></div></div><div class="tp-record-ui__row"><div class="tp-record-ui__title">Текст в раскрывающихся карточках</div></div></div><div class="tp-record-ui__container tp-record-ui__container_top tp-record-ui__container_right"><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_ai"></span></button></div><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_duplicate"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_delete"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_hide"></span></button><button class="tp-record-ui__button tp-record-ui__button_white"><span class="dropdown-arrow"></span></button></div><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_up"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_down"></span></button></div></div><div class="tp-record-ui__container tp-record-ui__container_bottom tp-record-ui__container_left"><div class="tp-record-ui__group tp-record-ui__group_opacity"><button class="tp-record-ui__button tp-record-ui__button_bg tcolors" data-recordid="1148307866" style="background: rgb(244, 250, 245);"></button></div></div></div></div><div class="tp-record-ui__borders"><div class="tp-record-ui__border tp-record-ui__border_top"></div><div class="tp-record-ui__border tp-record-ui__border_bottom"></div></div><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__button_add-top tp-record-ui__tooltip"></button><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__tooltip"></button><div class="tp-record-ui__overlay"></div></div><div class="tp-record-ui hidden" style="height: 65px;"><div class="tp-record-ui__buttons tp-record-ui__buttons_sticky"><div class="tp-record-ui__buttons-inner"><div class="tp-record-ui__container tp-record-ui__container_top tp-record-ui__container_left"><div class="tp-record-ui__row"></div></div><div class="tp-record-ui__container tp-record-ui__container_top tp-record-ui__container_right"><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_duplicate"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_delete"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_hide"></span></button><button class="tp-record-ui__button tp-record-ui__button_white"><span class="dropdown-arrow"></span></button></div><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_up"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_down"></span></button></div></div><div class="tp-record-ui__container tp-record-ui__container_bottom tp-record-ui__container_left"><div class="tp-record-ui__group tp-record-ui__group_opacity"></div></div></div></div><div class="tp-record-ui__borders"><div class="tp-record-ui__border tp-record-ui__border_top tp-record-ui__border_disabled"></div><div class="tp-record-ui__border tp-record-ui__border_bottom tp-record-ui__border_disabled"></div></div><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__button_add-top tp-record-ui__tooltip"></button><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__tooltip"></button><div class="tp-record-ui__overlay"></div></div><div class="tp-record-ui hidden" style="height: 65px;"><div class="tp-record-ui__buttons tp-record-ui__buttons_sticky"><div class="tp-record-ui__buttons-inner"><div class="tp-record-ui__container tp-record-ui__container_top tp-record-ui__container_left"><div class="tp-record-ui__row"></div></div><div class="tp-record-ui__container tp-record-ui__container_top tp-record-ui__container_right"><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_duplicate"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_delete"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_hide"></span></button><button class="tp-record-ui__button tp-record-ui__button_white"><span class="dropdown-arrow"></span></button></div><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_up"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_down"></span></button></div></div><div class="tp-record-ui__container tp-record-ui__container_bottom tp-record-ui__container_left"><div class="tp-record-ui__group tp-record-ui__group_opacity"></div></div></div></div><div class="tp-record-ui__borders"><div class="tp-record-ui__border tp-record-ui__border_top tp-record-ui__border_disabled"></div><div class="tp-record-ui__border tp-record-ui__border_bottom tp-record-ui__border_disabled"></div></div><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__button_add-top tp-record-ui__tooltip"></button><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__tooltip"></button><div class="tp-record-ui__overlay"></div></div><div class="tp-record-ui hidden" style="height: 65px;"><div class="tp-record-ui__buttons tp-record-ui__buttons_sticky"><div class="tp-record-ui__buttons-inner"><div class="tp-record-ui__container tp-record-ui__container_top tp-record-ui__container_left"><div class="tp-record-ui__row"></div></div><div class="tp-record-ui__container tp-record-ui__container_top tp-record-ui__container_right"><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_duplicate"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_delete"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_hide"></span></button><button class="tp-record-ui__button tp-record-ui__button_white"><span class="dropdown-arrow"></span></button></div><div class="tp-record-ui__group tp-record-ui__group_borders"><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_up"></span></button><button class="tp-record-ui__button tp-record-ui__button_white tp-record-ui__tooltip"><span class="tp-record-ui__icon tp-record-ui__icon_down"></span></button></div></div><div class="tp-record-ui__container tp-record-ui__container_bottom tp-record-ui__container_left"><div class="tp-record-ui__group tp-record-ui__group_opacity"></div></div></div></div><div class="tp-record-ui__borders"><div class="tp-record-ui__border tp-record-ui__border_top tp-record-ui__border_disabled"></div><div class="tp-record-ui__border tp-record-ui__border_bottom tp-record-ui__border_disabled"></div></div><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__button_add-top tp-record-ui__tooltip"></button><button class="tp-record-ui__button tp-record-ui__button_add tp-record-ui__tooltip"></button><div class="tp-record-ui__overlay"></div></div></div><div class="t-help-bubble" id="t-help-bubble" style="position:fixed;bottom:30px;right:30px; border-radius:100px;width:60px;height:60px;background-color:rgba(250, 134, 105, 0.9);z-index:1004;box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);cursor:pointer;"></div>
+	<style>
+	.t-divider {
+		overflow: visible;
+		transition: opacity 0.3s ease-in-out;
+		will-change: opacity;
+	}
+
+	@media (hover: hover) {
+		.t-divider:not(.t-divider__selected):hover {
+			cursor: pointer;
+			opacity: 0.6 !important; /* перебивание инлайновых стилей в блоках */
+		}
+	}
+
+	.t-records:not(.t-records_container-mobile) .t-divider:not(.t-divider__selected):before {
+		--clickable-area: 10px;
+		content: '';
+		cursor: pointer;
+		position: absolute;
+		/* центрирование кликабельной зоны */
+		transform: translate(calc(-1 * var(--clickable-area) / 2), calc(-1 * var(--clickable-area) / 2));
+		top: 0;
+		left: 0;
+		width: calc(100% + var(--clickable-area));
+		height: calc(100% + var(--clickable-area));
+		background: transparent;
+	}
+	</style><div class="tp-preview"><div class="tp-preview__frame-container"><div class="tp-preview__frame-wrapper"><iframe class="tp-preview__frame" src="{{ url_for('static', filename='main_files/a.htm') }}"></iframe><div class="tp-preview__frame-preloader">
+		<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+			<g fill="#c5c5c5">
+				<rect class="t-icon-loader-rect" x="14" width="4" height="11" rx="2"></rect>
+				<rect class="t-icon-loader-rect" x="14" width="4" height="11" rx="2" transform="rotate(45 16 16)"></rect>
+				<rect class="t-icon-loader-rect" x="14" width="4" height="11" rx="2" transform="rotate(90 16 16)"></rect>
+				<rect class="t-icon-loader-rect" x="14" width="4" height="11" rx="2" transform="rotate(135 16 16)"></rect>
+				<rect class="t-icon-loader-rect" x="14" width="4" height="11" rx="2" transform="rotate(180 16 16)"></rect>
+				<rect class="t-icon-loader-rect" x="14" width="4" height="11" rx="2" transform="rotate(225 16 16)"></rect>
+				<rect class="t-icon-loader-rect" x="14" width="4" height="11" rx="2" transform="rotate(270 16 16)"></rect>
+				<rect class="t-icon-loader-rect" x="14" width="4" height="11" rx="2" transform="rotate(315 16 16)"></rect>
+			</g>
+		</svg>
+	</div></div></div><div class="tp-preview__buttons">
+
+		</button><button type="button" class="t-button tp-preview__button tp-preview__button_zoom">100%</button></div></div><form class="tp-preview__notification hidden">
+			<div class="tp-preview__notification__title">
+				<span>Данные предпросмотра устарели</span>
+				<span class="pe-tooltip__target"></span>
+			</div>
+			<label class="pe-label-checkbox-custom tp-preview__notification__label">
+				<input type="checkbox" name="tp_preview_outdatedaction" class="pe-input-checkbox">
+				<span class="pe-checkbox-custom">
+					<svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+						<path d="M3 8.08333L6.6 11L12 4" vector-effect="non-scaling-stroke"></path>
+					</svg>
+				</span>
+				
+			</label>
+			
+		</form></body></html>

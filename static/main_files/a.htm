@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Pacifico&family=Rubik+Puddles&display=swap" rel="stylesheet">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="csrf" content="" id="csrf">
+	<link rel="shortcut icon" href="https://tilda.ru/img/tildafavicon.ico" onerror="this.loaderr='y';">
+	<link rel="icon" href="https://tilda.ru/img/tildafavicon.svg" type="image/svg+xml" onerror="this.loaderr='y';">
+	<link rel="apple-touch-icon" href="https://tilda.ru/img/tildafavicon-180x180.png" type="image/png" onerror="this.loaderr='y';">
+
+	<title>Tilda: main</title>
+
+	<script src="a_data/jquery-1.10.2.min.js" type="text/javascript" onerror="this.loaderr='y';"></script><style></style>
+
+	<script src="tilda-scripts-3.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+
+	<link href="a_data/tilda-grid-3.0.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+
+	
+	
+		
+		<link href="fonts-tildasans.css" rel="stylesheet" onerror="this.loaderr='y';">
+	
+	<link href="a_data/%D0%91%D0%B5%D0%B7%20%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+	<script src="a_data/%D0%91%D0%B5%D0%B7%20%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8" onerror="this.loaderr='y';"></script>
+
+			<script src="tilda-menusub-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="tilda-menu-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="tilda-cards-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="tilda-forms-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="tilda-map-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-delivery-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-animation-2.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-zoom-2.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-cover-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-events-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-video-processor-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-formula.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-zero-scale-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-zero-tooltip-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-zero-video-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-zero-gallery-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-zero-forms-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-zero-fixed-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-slds-1.4.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/hammer.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+			<script src="a_data/tilda-undercut-1.0.min.js" type="text/javascript" onerror="this.loaderr='y';"></script>
+	
+			<link href="a_data/tilda-menusub-1.0.min.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+			<link href="a_data/tilda-forms-1.0.min.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+			<link href="a_data/tilda-cards-1.0.min.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+			<link href="a_data/tilda-delivery-1.0.min.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+			<link href="a_data/tilda-animation-2.0.min.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+			<link href="a_data/tilda-zoom-2.0.min.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+			<link href="a_data/tilda-cover-1.0.min.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+			<link href="a_data/tilda-slds-1.4.min.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+			<link href="a_data/tilda-carousel-1.0.min.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+			<link href="a_data/ya-share.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+			<link href="a_data/carousel-btstrp.min.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+			<link href="a_data/katex.min.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+			<link href="a_data/quill-table.min.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+			<link href="a_data/tilda-zero-gallery-1.0.min.css" rel="stylesheet" media="screen" onerror="this.loaderr='y';">
+	
+	
+	
+	<script src="a_data/tilda-animation-ext-1.0.min.js" onerror="this.loaderr='y';"></script>
+	<script src="a_data/tilda-animation-sbs-1.0.min.js" onerror="this.loaderr='y';"></script>
+	
+	
+	<script type="text/javascript">
+		$( document ).ready(function() {
+			if ( window.location !== window.parent.location ) {
+		        $('#t-page-preview-back').css('display','none');
+		    }else{
+			    $('#t-page-preview-back').css('display','block');
+			}			
+		});
+	</script>
+	
+	
+<script src="a_data/katex.min.js"></script><style>.ql-undercut {display: inline;}.ql-undercut_button {display: inline;cursor: pointer;background: none;border-top: none;border-left: none;border-right: none;line-height: 1!important;padding: 0;margin: 0;font: inherit;line-height: inherit;text-transform: inherit;letter-spacing: inherit;}</style></head>
+
+<body style="margin: 0px;" data-lang="RU" data-country="RU">
+
+
+<!--allrecords-->
+<div id="allrecords" class="t-records" data-hook="blocks-collection-content-node" data-tilda-project-id="13860609" data-tilda-page-id="71980253" data-tilda-formskey="1a509d6ad0beea62611fe8ea13860609" data-tilda-cookie="no" data-tilda-mode="preview" data-tilda-root-zone="com">
+
+    <div id="rec1148307821" class="r t-rec t-rec_pt_120 t-rec_pt-res-480_90 t-rec_pb_45 t-rec_pb-res-480_15" style="padding-top:120px;padding-bottom:45px;background-color:#ffffff; " data-animationappear="off" data-record-type="1001" data-bg-color="#ffffff">
+<!-- t1001 -->
+    
+<div class="t1001">
+    <div class="t-container t-align_center">
+        <div class="t-col t-col_10 t-prefix_1">
+                            <div class="t1001__title t-title t-title_md t-margin_auto" field="title">
+								
+								<div class="cardw">
+  <div class="loader">
+    <p>НАЙДИ</p>
+    <div class="words">
+      <span class="word">СЕБЯ</span>
+      <span class="word">ДРУЗЕЙ</span>
+      <span class="word">ХОББИ</span>
+      <span class="word">ЗНАКОМЫХ</span>
+      <span class="word">НОВОЕ</span>
+    </div>
+  </div>
+</div>
+
+<style>	
+@font-face {
+  font-family: 'DotFont'; /* имя шрифта, которое вы будете использовать */
+  src:
+  url('fonts/ds-dots.woff') format('woff'),
+  url('fonts/ds-dots.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+		/* From Uiverse.io by kennyotsu */ 
+.cardw {
+	display: flex;
+  justify-content: center; /* горизонтальное центрирование */
+  align-items: center;     /* вертикальное центрирование */
+  /* color used to softly clip top and bottom of the .words container */
+  --bg-color: #111;
+  background-color: var(--bg-color);
+  padding: 1rem 2rem;
+  border-radius: 1.25rem;
+}
+.loader {
+  font-family: DotFont;
+  color: rgb(124, 124, 124);
+  font-weight: 500;
+  font-size: 40px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 60px;
+  padding: 10px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 8px;
+}
+
+.words {
+  overflow: hidden;
+  position: relative;
+}
+.words::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    var(--bg-color) 10%,
+    transparent 30%,
+    transparent 70%,
+    var(--bg-color) 90%
+  );
+  z-index: 20;
+}
+
+.word {
+  display: block;
+  height: 100%;
+  padding-left: 6px;
+  color: #956afa;
+  animation: spin_4991 4s infinite;
+}
+
+@keyframes spin_4991 {
+  10% {
+    -webkit-transform: translateY(-102%);
+    transform: translateY(-102%);
+  }
+
+  25% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+
+  35% {
+    -webkit-transform: translateY(-202%);
+    transform: translateY(-202%);
+  }
+
+  50% {
+    -webkit-transform: translateY(-200%);
+    transform: translateY(-200%);
+  }
+
+  60% {
+    -webkit-transform: translateY(-302%);
+    transform: translateY(-302%);
+  }
+
+  75% {
+    -webkit-transform: translateY(-300%);
+    transform: translateY(-300%);
+  }
+
+  85% {
+    -webkit-transform: translateY(-402%);
+    transform: translateY(-402%);
+  }
+
+  100% {
+    -webkit-transform: translateY(-400%);
+    transform: translateY(-400%);
+  }
+}
+
+</style>
+							</div>
+            
+
+
+
+
+
+
+
+
+                            <div class="t1001__descr t-descr t-descr_lg t-margin_auto" field="descr">Создайте профиль, познакомьтесь с интересными людьми и делитесь своими достижениями.</div>
+
+
+
+
+
+
+
+
+
+
+                            <div class="t1001__btn-wrapper ">
+                                            <div  style="">
+<a href="/server_work">
+<button class="uiverse">
+  <div class="wrapper">
+    <span class="reg_text">Регистрация</span>
+    <div class="circle circle-12"></div>
+    <div class="circle circle-11"></div>
+    <div class="circle circle-10"></div>
+    <div class="circle circle-9"></div>
+    <div class="circle circle-8"></div>
+    <div class="circle circle-7"></div>
+    <div class="circle circle-6"></div>
+    <div class="circle circle-5"></div>
+    <div class="circle circle-4"></div>
+    <div class="circle circle-3"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-1"></div>
+  </div>
+</button>
+</a>
+
+<style>
+  
+	/* From Uiverse.io by Ashon-G */ 
+
+  .reg_text{
+  font-family: DotFont;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  font-size: 35px;
+  padding: 5px 10px;
+
+  }
+.uiverse {
+	min-width: 180px;
+  --duration: 7s;
+  --easing: linear;
+  --c-color-1: rgba(255, 163, 26, 0.7);
+  --c-color-2: #1a23ff;
+  --c-color-3: #e21bda;
+  --c-color-4: rgba(255, 232, 26, 0.7);
+  --c-shadow: rgba(255, 223, 87, 0.5);
+  --c-shadow-inset-top: rgba(255, 223, 52, 0.9);
+  --c-shadow-inset-bottom: rgba(255, 250, 215, 0.8);
+  --c-radial-inner: #ffd215;
+  --c-radial-outer: #fff172;
+  --c-color: #fff;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  display: table;
+  border-radius: 24px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: var(--c-color);
+  background: radial-gradient(
+    circle,
+    var(--c-radial-inner),
+    var(--c-radial-outer) 80%
+  );
+  box-shadow: 0 0 14px var(--c-shadow);
+}
+
+.uiverse:before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 24px;
+  box-shadow:
+    inset 0 3px 12px var(--c-shadow-inset-top),
+    inset 0 -3px 4px var(--c-shadow-inset-bottom);
+}
+
+.uiverse .wrapper {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  overflow: hidden;
+  border-radius: 24px;
+  min-width: 132px;
+  padding: 12px 0;
+}
+
+.uiverse .wrapper span {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.uiverse:hover {
+  --duration: 1400ms;
+}
+
+.uiverse .wrapper .circle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  filter: blur(var(--blur, 8px));
+  background: var(--background, transparent);
+  transform: translate(var(--x, 0), var(--y, 0)) translateZ(0);
+  animation: var(--animation, none) var(--duration) var(--easing) infinite;
+}
+
+.uiverse .wrapper .circle.circle-1,
+.uiverse .wrapper .circle.circle-9,
+.uiverse .wrapper .circle.circle-10 {
+  --background: var(--c-color-4);
+}
+
+.uiverse .wrapper .circle.circle-3,
+.uiverse .wrapper .circle.circle-4 {
+  --background: var(--c-color-2);
+  --blur: 14px;
+}
+
+.uiverse .wrapper .circle.circle-5,
+.uiverse .wrapper .circle.circle-6 {
+  --background: var(--c-color-3);
+  --blur: 16px;
+}
+
+.uiverse .wrapper .circle.circle-2,
+.uiverse .wrapper .circle.circle-7,
+.uiverse .wrapper .circle.circle-8,
+.uiverse .wrapper .circle.circle-11,
+.uiverse .wrapper .circle.circle-12 {
+  --background: var(--c-color-1);
+  --blur: 12px;
+}
+
+.uiverse .wrapper .circle.circle-1 {
+  --x: 0;
+  --y: -40px;
+  --animation: circle-1;
+}
+
+.uiverse .wrapper .circle.circle-2 {
+  --x: 92px;
+  --y: 8px;
+  --animation: circle-2;
+}
+
+.uiverse .wrapper .circle.circle-3 {
+  --x: -12px;
+  --y: -12px;
+  --animation: circle-3;
+}
+
+.uiverse .wrapper .circle.circle-4 {
+  --x: 80px;
+  --y: -12px;
+  --animation: circle-4;
+}
+
+.uiverse .wrapper .circle.circle-5 {
+  --x: 12px;
+  --y: -4px;
+  --animation: circle-5;
+}
+
+.uiverse .wrapper .circle.circle-6 {
+  --x: 56px;
+  --y: 16px;
+  --animation: circle-6;
+}
+
+.uiverse .wrapper .circle.circle-7 {
+  --x: 8px;
+  --y: 28px;
+  --animation: circle-7;
+}
+
+.uiverse .wrapper .circle.circle-8 {
+  --x: 28px;
+  --y: -4px;
+  --animation: circle-8;
+}
+
+.uiverse .wrapper .circle.circle-9 {
+  --x: 20px;
+  --y: -12px;
+  --animation: circle-9;
+}
+
+.uiverse .wrapper .circle.circle-10 {
+  --x: 64px;
+  --y: 16px;
+  --animation: circle-10;
+}
+
+.uiverse .wrapper .circle.circle-11 {
+  --x: 4px;
+  --y: 4px;
+  --animation: circle-11;
+}
+
+.uiverse .wrapper .circle.circle-12 {
+  --blur: 14px;
+  --x: 52px;
+  --y: 4px;
+  --animation: circle-12;
+}
+
+@keyframes circle-1 {
+  33% {
+    transform: translate(0px, 16px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(12px, 64px) translateZ(0);
+  }
+}
+
+@keyframes circle-2 {
+  33% {
+    transform: translate(200px, -10px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(200px, -48px) translateZ(0);
+  }
+}
+
+@keyframes circle-3 {
+  33% {
+    transform: translate(120px, 12px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(112px, 4px) translateZ(0);
+  }
+}
+
+@keyframes circle-4 {
+  33% {
+    transform: translate(200px, -12px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(112px, -8px) translateZ(0);
+  }
+}
+
+@keyframes circle-5 {
+  33% {
+    transform: translate(184px, 28px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(140px, -32px) translateZ(0);
+  }
+}
+
+@keyframes circle-6 {
+  33% {
+    transform: translate(128px, -16px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(200px, -56px) translateZ(0);
+  }
+}
+
+@keyframes circle-7 {
+  33% {
+    transform: translate(8px, 28px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(120px, -60px) translateZ(0);
+  }
+}
+
+@keyframes circle-8 {
+  33% {
+    transform: translate(132px, -4px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(156px, -20px) translateZ(0);
+  }
+}
+
+@keyframes circle-9 {
+  33% {
+    transform: translate(20px, -12px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(80px, -8px) translateZ(0);
+  }
+}
+
+@keyframes circle-10 {
+  33% {
+    transform: translate(200px, 20px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(200px, 28px) translateZ(0);
+  }
+}
+
+@keyframes circle-11 {
+  33% {
+    transform: translate(4px, 4px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(68px, 20px) translateZ(0);
+  }
+}
+
+@keyframes circle-12 {
+  33% {
+    transform: translate(56px, 0px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(60px, -32px) translateZ(0);
+  }
+}
+
+</style>
+                            
+            
+        </div>
+    </div>
+
+            <div class="t1001__img-wrapper t1001__container_indent">
+            <div class="t1001__img t-bgimg" bgimgfield="img" data-original="https://static.tildacdn.com/tild3166-3234-4363-a438-376230666466/business-mock-up-wit.jpg" style="background-image:url('https://static.tildacdn.com/tild3166-3234-4363-a438-376230666466/business-mock-up-wit.jpg');" itemscope="" itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="image" content="https://static.tildacdn.com/tild3166-3234-4363-a438-376230666466/business-mock-up-wit.jpg">            </div>
+        </div>
+    </div>
+
+
+    
+                
+                
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+     
+            <style> #rec1148307821 .t1001__title {   color: #000000; } #rec1148307821 .t1001__descr {   color: #000000; }</style>
+                                                                        
+                                                                        
+            		                                                          
+                                              <style> #rec1148307821 .t1001__img { border-radius:20px; }</style>
+    
+</div>
+
+
+    <div id="rec1148307831" class="r t-rec t-rec_pt_135 t-rec_pt-res-480_90 t-rec_pb_135 t-rec_pb-res-480_90" style="padding-top:135px;padding-bottom:135px;background-color:#ffffff; " data-record-type="1095" data-bg-color="#ffffff" data-animationappear="off">
+<!-- T1095 -->
+
+
+
+<div class="t1095">
+					
+		
+						
+	<div class="t-section__container t-container t-container_flex">
+		<div class="t-col t-col_12 ">
+												<div class="t-section__title t-title t-title_xs t-align_center t-margin_auto" field="btitle">
+						Преимущества использования социальной сети
+					</div>
+				
+
+									<div class="t-section__descr t-descr t-descr_xl t-align_center t-margin_auto" field="bdescr">
+						На сайте вы сможете расширить свой круг общения, поделиться своими достижениями и представить себя широкой аудитории.
+					</div>
+									</div>
+	</div>
+
+	<style>.t-section__descr {max-width: 560px;}#rec1148307831 .t-section__title {margin-bottom: 40px;}#rec1148307831 .t-section__descr {margin-bottom: 90px;}@media screen and (max-width: 960px) {#rec1148307831 .t-section__title {margin-bottom: 20px;}#rec1148307831 .t-section__descr {margin-bottom: 45px;}}</style>
+
+	    
+                
+                
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+     
+            <style> #rec1148307831 .t-section__title {   color: #000000; } #rec1148307831 .t-section__descr {   color: #000000; max-width: 845px; }</style>
+    	
+			<ul role="list" class="t1095__container t-container">
+						    			    			
+    			    				    
+    				    					    				    
+    				<li class="t-col t-col_8 t-prefix_2 t-item t-list__item">
+    					<div class="t-cell t-valign_top">
+    						    							<div class="t1095__bgimg t-bgimg" bgimgfield="li_img__3957094565000" data-original="https://static.tildacdn.com/tild3763-6461-4836-b261-353035633734/1.svg" style=" background-image: url('https://static.tildacdn.com/tild3763-6461-4836-b261-353035633734/1.svg');" itemscope="" itemtype="http://schema.org/ImageObject">
+									<meta itemprop="image" content="https://static.tildacdn.com/tild3763-6461-4836-b261-353035633734/1.svg">
+									    							</div>
+    						    					</div>
+    					<div class="t1095__textwrapper t1095__textwr_leftpadding t-cell t-valign_top">
+    						    							<div class="t-name t-name_md t1095__bottommargin" field="li_title__3957094565000">
+    						        Главная страница
+    						    </div>
+    						    						    							<div class="t-descr t-descr_sm" style="padding-top: 14px;" field="li_descr__3957094565000">
+    							    На главной странице вы найдёте множество профилей 
+пользователей, сможете изучить их фотографии и краткую информацию о них.
+    							</div>
+    						    					</div>
+    				</li>
+    						    			    			
+    			    				    
+    				    					    				    
+    				<li class="t-col t-col_8 t-prefix_2 t-item t-list__item">
+    					<div class="t-cell t-valign_top">
+    						    							<div class="t1095__bgimg t-bgimg" bgimgfield="li_img__3957094565001" data-original="https://static.tildacdn.com/tild6630-3033-4237-a564-646431313432/2.svg" style=" background-image: url('https://static.tildacdn.com/tild6630-3033-4237-a564-646431313432/2.svg');" itemscope="" itemtype="http://schema.org/ImageObject">
+									<meta itemprop="image" content="https://static.tildacdn.com/tild6630-3033-4237-a564-646431313432/2.svg">
+									    							</div>
+    						    					</div>
+    					<div class="t1095__textwrapper t1095__textwr_leftpadding t-cell t-valign_top">
+    						    							<div class="t-name t-name_md t1095__bottommargin" field="li_title__3957094565001">
+    						        Страница поиска
+    						    </div>
+    						    						    							<div class="t-descr t-descr_sm" style="padding-top: 14px;" field="li_descr__3957094565001">
+    							    С помощью страницы поиска вы сможете быстро найти пользователя по ключевым словам или другим параметрам.
+    							</div>
+    						    					</div>
+    				</li>
+    						    			    			
+    			    				    
+    				    					    				    
+    				<li class="t-col t-col_8 t-prefix_2 t-item t-list__item">
+    					<div class="t-cell t-valign_top">
+    						    							<div class="t1095__bgimg t-bgimg" bgimgfield="li_img__3957094565002" data-original="https://static.tildacdn.com/tild3639-3963-4966-a466-626164333934/4.svg" style=" background-image: url('https://static.tildacdn.com/tild3639-3963-4966-a466-626164333934/4.svg');" itemscope="" itemtype="http://schema.org/ImageObject">
+									<meta itemprop="image" content="https://static.tildacdn.com/tild3639-3963-4966-a466-626164333934/4.svg">
+									    							</div>
+    						    					</div>
+    					<div class="t1095__textwrapper t1095__textwr_leftpadding t-cell t-valign_top">
+    						    							<div class="t-name t-name_md t1095__bottommargin" field="li_title__3957094565002">
+    						        Страница пользователя
+    						    </div>
+    						    						    							<div class="t-descr t-descr_sm" style="padding-top: 14px;" field="li_descr__3957094565002">
+    							    Страница пользователя представляет собой публичное 
+портфолио, где можно найти информацию о человеке, его достижениях и 
+интересах.
+    							</div>
+    						    					</div>
+    				</li>
+    								</ul>
+	
+	
+
+</div>
+
+    
+                
+                
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+     
+            <style> #rec1148307831 .t1095__textwrapper .t-name {   color: #000000; } #rec1148307831 .t1095__textwrapper .t-descr {   color: #000000; }</style>
+    
+</div>
+
+
+    <div id="rec1148307856" class="r t-rec t-rec_pt_135 t-rec_pt-res-480_90 t-rec_pb_135 t-rec_pb-res-480_90" style="padding-top:135px;padding-bottom:135px;background-color:#f4faf5; " data-animationappear="off" data-record-type="948" data-bg-color="#f4faf5">
+<!-- t948 -->
+
+    
+
+<div class="t948">
+
+    				
+		
+						
+	<div class="t-section__container t-container t-container_flex">
+		<div class="t-col t-col_12 ">
+												<div class="t-section__title t-title t-title_xs t-align_center t-margin_auto" field="btitle">
+						Как начать пользоваться социальной сетью
+					</div>
+				
+
+									<div class="t-section__descr t-descr t-descr_xl t-align_center t-margin_auto" field="bdescr">
+						Зарегистрируйтесь на нашем сайте и создайте свой 
+персонализированный профиль, который будет содержать всю необходимую 
+информацию о вас и ваших интересах
+					</div>
+									</div>
+	</div>
+
+	<style>.t-section__descr {max-width: 560px;}#rec1148307856 .t-section__title {margin-bottom: 40px;}#rec1148307856 .t-section__descr {margin-bottom: 120px;}@media screen and (max-width: 960px) {#rec1148307856 .t-section__title {margin-bottom: 20px;}#rec1148307856 .t-section__descr {margin-bottom: 65px;}}</style>
+
+	    
+                
+                
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+     
+            <style> #rec1148307856 .t-section__title {   color: #000000; } #rec1148307856 .t-section__descr {   color: #000000; max-width: 754px; }</style>
+    
+        <div class="t-container">
+                                                                                                        <div class="t948__row">
+                                            
+                    <div class="t-item t948__col t-col t-col_4 " style="">
+                        <div class="t948__content">
+                            <div class="t948__textwrapper" style=" border: 1px solid transparent; background-color: #ffffff;">
+                                <div class="t948__circle" style="  border-color: #000000; ">
+                                    <div class="t948__number t-name t-name_md" style="color: #000000;"></div>
+                                </div>
+                                                                    <div class="t948__title t-name t-name_md" field="li_title__1417094636330"><span style="text-align: left;">Регистрация</span></div>
+                                                                        
+                                                            <div class="t948__descr t-text t-text_xs" field="li_descr__1417094636330">Заполните регистрационную форму и создайте аккаунт.</div>
+                                                                                            </div>
+                        </div>
+                    </div>
+                
+                                                                                    
+                    <div class="t-item t948__col t-col t-col_4 " style="">
+                        <div class="t948__content">
+                            <div class="t948__textwrapper" style=" border: 1px solid transparent; background-color: #ffffff;">
+                                <div class="t948__circle" style="  border-color: #000000; ">
+                                    <div class="t948__number t-name t-name_md" style="color: #000000;"></div>
+                                </div>
+                                                                    <div class="t948__title t-name t-name_md" field="li_title__1417094636331">Создание профиля</div>
+                                                                        
+                                                            <div class="t948__descr t-text t-text_xs" field="li_descr__1417094636331">Добавьте информацию о себе и загрузите фотографии.</div>
+                                                                                            </div>
+                        </div>
+                    </div>
+                
+                                                                                    
+                    <div class="t-item t948__col t-col t-col_4 " style="">
+                        <div class="t948__content">
+                            <div class="t948__textwrapper" style=" border: 1px solid transparent; background-color: #ffffff;">
+                                <div class="t948__circle" style="  border-color: #000000; ">
+                                    <div class="t948__number t-name t-name_md" style="color: #000000;"></div>
+                                </div>
+                                                                    <div class="t948__title t-name t-name_md" field="li_title__1417094636332">Просмотр профилей</div>
+                                                                        
+                                                            <div class="t948__descr t-text t-text_xs" field="li_descr__1417094636332">Изучайте профили других пользователей и узнавайте о них больше.</div>
+                                                                                            </div>
+                        </div>
+                    </div>
+                
+                 
+                                        </div>
+                                    </div>
+
+    
+
+
+</div>
+
+
+    
+                
+                
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                            
+         
+
+         
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+     
+            <style> #rec1148307856 .t948__title {   color: #000000; } #rec1148307856 .t948__descr {   color: #000000; }</style>
+                                                                        
+                                                                        
+            		                                                          
+                                              <style> #rec1148307856 .t948__textwrapper { border-radius:15px; }</style>
+    
+</div>
+
+
+    <div id="rec1148307861" class="r t-rec t-rec_pt_135 t-rec_pt-res-480_90 t-rec_pb_135 t-rec_pb-res-480_90" style="padding-top:135px;padding-bottom:135px;background-color:#ffffff; " data-animationappear="off" data-record-type="772" data-bg-color="#ffffff">
+<!-- T772 -->
+
+		
+	
+	
+	
+
+
+<div class="t772">
+					
+		
+						
+	<div class="t-section__container t-container t-container_flex">
+		<div class="t-col t-col_12 ">
+												<div class="t-section__title t-title t-title_xs t-align_center t-margin_auto" field="btitle">
+						Социальная сеть: разнообразие профилей
+					</div>
+				
+
+									<div class="t-section__descr t-descr t-descr_xl t-align_center t-margin_auto" field="bdescr">
+						Платформа для представления себя и своих интересов. Здесь каждый может поделиться своими достижениями и увлечениями.
+					</div>
+									</div>
+	</div>
+
+	<style>.t-section__descr {max-width: 560px;}#rec1148307861 .t-section__title {margin-bottom: 40px;}#rec1148307861 .t-section__descr {margin-bottom: 90px;}@media screen and (max-width: 960px) {#rec1148307861 .t-section__title {margin-bottom: 20px;}#rec1148307861 .t-section__descr {margin-bottom: 60px;}}</style>
+
+	    
+                
+                
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+     
+            <style> #rec1148307861 .t-section__title {   color: #000000; } #rec1148307861 .t-section__descr {   color: #000000; max-width: 832px; }</style>
+    
+	
+	<div class="t772__wrapper t-card__container t772__container t772__container_mobile-grid">
+														
+					
+	
+
+
+
+										
+		
+
+		
+										
+												
+		
+
+		
+		
+								
+				
+				<div class="t-card__col t-card__col_withoutbtn t772__col t-col t-col_6 t-align_left t-item t772__col_mobile-grid">
+											<div class="t772__content">
+															<div class="t772__imgwrapper " style="padding-bottom:64.285714285714%;">
+																			<div class="t772__bgimg  t-bgimg" data-original="https://static.tildacdn.com/tild6664-3462-4836-b232-646565313863/photo-1634818117851-.jpg" bgimgfield="li_img__4077826484970" style="background-image:url('https://static.tildacdn.com/tild6664-3462-4836-b232-646565313863/photo-1634818117851-.jpg');" itemscope="" itemtype="http://schema.org/ImageObject">
+												<meta itemprop="image" content="https://static.tildacdn.com/tild6664-3462-4836-b232-646565313863/photo-1634818117851-.jpg">										</div>
+																											</div>
+							
+															<div class="t772__textwrapper">
+									
+
+	
+						
+						
+	
+			    
+    
+    
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+     
+            <style> #rec1148307861 .t-card__title {   color: #000000; } #rec1148307861 .t-card__descr {   color: #000000; }</style>
+    	
+	
+			<div class="t-card__title t-name t-name_xl" field="li_title__4077826484970">
+							Творческий профиль
+					</div>
+	
+			<div class="t-card__descr t-descr t-descr_xxs" field="li_descr__4077826484970">
+			Пользователь с портфолио работ, фотографиями и информацией об интересах в искусстве и культуре.
+		</div>
+	
+									</div>
+													</div>
+					
+									</div>
+															
+					
+	
+
+
+
+										
+		
+
+		
+										
+												
+		
+
+		
+		
+								
+				
+				<div class="t-card__col t-card__col_withoutbtn t772__col t-col t-col_6 t-align_left t-item t772__col_mobile-grid">
+											<div class="t772__content">
+															<div class="t772__imgwrapper " style="padding-bottom:64.285714285714%;">
+																			<div class="t772__bgimg  t-bgimg" data-original="https://static.tildacdn.com/tild3633-3661-4265-b136-383032663263/photo-1646092970097-.jpg" bgimgfield="li_img__4077826484971" style="background-image:url('https://static.tildacdn.com/tild3633-3661-4265-b136-383032663263/photo-1646092970097-.jpg');" itemscope="" itemtype="http://schema.org/ImageObject">
+												<meta itemprop="image" content="https://static.tildacdn.com/tild3633-3661-4265-b136-383032663263/photo-1646092970097-.jpg">										</div>
+																											</div>
+							
+															<div class="t772__textwrapper">
+									
+
+	
+						
+						
+	
+			    
+    
+    
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+     
+            <style> #rec1148307861 .t-card__title {   color: #000000; } #rec1148307861 .t-card__descr {   color: #000000; }</style>
+    	
+	
+			<div class="t-card__title t-name t-name_xl" field="li_title__4077826484971">
+							Профессиональный профиль
+					</div>
+	
+			<div class="t-card__descr t-descr t-descr_xxs" field="li_descr__4077826484971">
+			Пользователь с информацией о карьере, достижениях и профессиональных навыках.
+		</div>
+	
+									</div>
+													</div>
+					
+									</div>
+															
+					
+	
+
+
+
+										
+		
+
+		
+										
+												
+		
+
+		
+		
+								
+									<div class="t-clear t772__separator"></div>
+				
+				<div class="t-card__col t-card__col_withoutbtn t772__col t-col t-col_6 t-align_left t-item t772__col_mobile-grid">
+											<div class="t772__content">
+															<div class="t772__imgwrapper " style="padding-bottom:64.285714285714%;">
+																			<div class="t772__bgimg  t-bgimg" data-original="https://static.tildacdn.com/tild6131-3330-4966-a236-353530376237/photo-1599848151977-.jpg" bgimgfield="li_img__4077826484972" style="background-image:url('https://static.tildacdn.com/tild6131-3330-4966-a236-353530376237/photo-1599848151977-.jpg');" itemscope="" itemtype="http://schema.org/ImageObject">
+												<meta itemprop="image" content="https://static.tildacdn.com/tild6131-3330-4966-a236-353530376237/photo-1599848151977-.jpg">										</div>
+																											</div>
+							
+															<div class="t772__textwrapper">
+									
+
+	
+						
+						
+	
+			    
+    
+    
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+     
+            <style> #rec1148307861 .t-card__title {   color: #000000; } #rec1148307861 .t-card__descr {   color: #000000; }</style>
+    	
+	
+			<div class="t-card__title t-name t-name_xl" field="li_title__4077826484972">
+							Личный профиль
+					</div>
+	
+			<div class="t-card__descr t-descr t-descr_xxs" field="li_descr__4077826484972">
+			Пользователь с фотографиями, информацией о хобби и интересах, без акцента на профессиональную деятельность.
+		</div>
+	
+									</div>
+													</div>
+					
+									</div>
+															
+				
+
+
+
+
+										
+		
+
+		
+										
+												
+		
+
+		
+		
+								
+				
+				<div class="t-card__col t-card__col_withoutbtn t772__col t-col t-col_6 t-align_left t-item t772__col_mobile-grid">
+											<div class="t772__content">
+															<div class="t772__imgwrapper " style="padding-bottom:64.285714285714%;">
+																			<div class="t772__bgimg  t-bgimg" data-original="https://static.tildacdn.com/tild6663-6534-4539-b339-366134633436/photo-1622249504895-.jpg" bgimgfield="li_img__4077826484973" style="background-image:url('https://static.tildacdn.com/tild6663-6534-4539-b339-366134633436/photo-1622249504895-.jpg');" itemscope="" itemtype="http://schema.org/ImageObject">
+												<meta itemprop="image" content="https://static.tildacdn.com/tild6663-6534-4539-b339-366134633436/photo-1622249504895-.jpg">										</div>
+																											</div>
+							
+															<div class="t772__textwrapper">
+									
+
+	
+						
+						
+	
+			    
+    
+    
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+     
+            <style> #rec1148307861 .t-card__title {   color: #000000; } #rec1148307861 .t-card__descr {   color: #000000; }</style>
+    	
+	
+			<div class="t-card__title t-name t-name_xl" field="li_title__4077826484973">
+							Образовательный профиль
+					</div>
+	
+			<div class="t-card__descr t-descr t-descr_xxs" field="li_descr__4077826484973">
+			Пользователь с информацией об образовании, курсах и тренингах, а также с примерами учебных проектов.
+		</div>
+	
+									</div>
+													</div>
+					
+									</div>
+						</div>
+</div>
+
+
+<script type="text/javascript">
+
+	t_onReady(function () {
+		t_onFuncLoad('t772_init', function () {
+			t772_init('1148307861');
+		});
+	});
+
+</script>
+
+
+                                                                        
+                                                                        
+                                    		                        		        
+                                                                        
+                        <style> #rec1148307861 .t772__bgimg,#rec1148307861 .t772__img { border-radius:15px; }</style>
+    
+</div>
+
+
+    <div id="rec1148307866" class="r t-rec t-rec_pt_135 t-rec_pt-res-480_90 t-rec_pb_135 t-rec_pb-res-480_90" style="padding-top:135px;padding-bottom:135px;background-color:#f4faf5; " data-animationappear="off" data-record-type="849" data-bg-color="#f4faf5">
+<!-- t849-->
+
+<div class="t849">
+
+					
+		
+						
+	<div class="t-section__container t-container t-container_flex">
+		<div class="t-col t-col_12 ">
+												<div class="t-section__title t-title t-title_xs t-align_center t-margin_auto" field="btitle">
+						Правила поведения и защита данных на сайте
+					</div>
+				
+
+									</div>
+	</div>
+
+	<style>.t-section__descr {max-width: 560px;}#rec1148307866 .t-section__title {margin-bottom: 90px;}#rec1148307866 .t-section__descr {}@media screen and (max-width: 960px) {#rec1148307866 .t-section__title {margin-bottom: 45px;}}</style>
+
+	    
+                
+                
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                            
+         
+
+         
+     
+            <style> #rec1148307866 .t-section__title {   color: #000000; }</style>
+    
+	<div class="t-container">
+																		<div class="t-item t-col t-col_8 t-prefix_2">
+					<div class="t849__accordion" data-accordion="false">
+						<div class="t849__wrapper">
+							<div class="t849__header " style="border-top: 1px solid #adebaf">
+								<button type="button" class="t849__trigger-button " aria-controls="accordion1_1148307866" aria-expanded="false">
+																			<span class="t849__title t-name t-name_xl" field="li_title__1087140218030">Какие правила поведения действуют на сайте?</span>
+																		<svg class="t849__icon" role="presentation" focusable="false" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+										<circle cx="20" cy="20" r="20" stroke-width="0"></circle>
+										<g class="t849__lines" stroke-width="2px" fill="none">
+											<path d="M9 20H31"></path>
+											<path d="M20 9V31"></path>
+										</g>
+									</svg>
+								</button>
+							</div>
+							<div class="t849__content" id="accordion1_1148307866" hidden="">
+								<div class="t849__textwrapper">
+																												<div class="t849__text t-descr t-descr_sm" field="li_descr__1087140218030">Пользователи
+ должны соблюдать правила вежливости и уважения, не допускать 
+оскорблений и клеветы. Запрещены материалы, нарушающие законодательство.</div>
+																	</div>
+							</div>
+						</div>
+					</div>
+									</div>
+
+																							<div class="t-item t-col t-col_8 t-prefix_2">
+					<div class="t849__accordion" data-accordion="false">
+						<div class="t849__wrapper">
+							<div class="t849__header " style="border-top: 1px solid #adebaf">
+								<button type="button" class="t849__trigger-button " aria-controls="accordion2_1148307866" aria-expanded="false">
+																			<span class="t849__title t-name t-name_xl" field="li_title__1087140218031">Как обеспечивается защита данных пользователей?</span>
+																		<svg class="t849__icon" role="presentation" focusable="false" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+										<circle cx="20" cy="20" r="20" stroke-width="0"></circle>
+										<g class="t849__lines" stroke-width="2px" fill="none">
+											<path d="M9 20H31"></path>
+											<path d="M20 9V31"></path>
+										</g>
+									</svg>
+								</button>
+							</div>
+							<div class="t849__content" id="accordion2_1148307866" hidden="">
+								<div class="t849__textwrapper">
+																												<div class="t849__text t-descr t-descr_sm" field="li_descr__1087140218031">Мы применяем современные технологии для защиты ваших персональных данных от несанкционированного доступа и утечки.</div>
+																	</div>
+							</div>
+						</div>
+					</div>
+									</div>
+
+																							<div class="t-item t-col t-col_8 t-prefix_2">
+					<div class="t849__accordion" data-accordion="false">
+						<div class="t849__wrapper">
+							<div class="t849__header " style="border-top: 1px solid #adebaf">
+								<button type="button" class="t849__trigger-button " aria-controls="accordion3_1148307866" aria-expanded="false">
+																			<span class="t849__title t-name t-name_xl" field="li_title__1087140218032">Могу ли я контролировать, как используются мои данные?</span>
+																		<svg class="t849__icon" role="presentation" focusable="false" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+										<circle cx="20" cy="20" r="20" stroke-width="0"></circle>
+										<g class="t849__lines" stroke-width="2px" fill="none">
+											<path d="M9 20H31"></path>
+											<path d="M20 9V31"></path>
+										</g>
+									</svg>
+								</button>
+							</div>
+							<div class="t849__content" id="accordion3_1148307866" hidden="">
+								<div class="t849__textwrapper">
+																												<div class="t849__text t-descr t-descr_sm" field="li_descr__1087140218032">Да, вы можете управлять настройками конфиденциальности вашего профиля и контролировать использование ваших данных на сайте.</div>
+																	</div>
+							</div>
+						</div>
+					</div>
+									</div>
+
+																							<div class="t-item t-col t-col_8 t-prefix_2">
+					<div class="t849__accordion" data-accordion="false">
+						<div class="t849__wrapper">
+							<div class="t849__header " style="border-top: 1px solid #adebaf">
+								<button type="button" class="t849__trigger-button " aria-controls="accordion4_1148307866" aria-expanded="false">
+																			<span class="t849__title t-name t-name_xl" field="li_title__1087140218033">Какие меры предпринимаются для защиты от мошенничества?</span>
+																		<svg class="t849__icon" role="presentation" focusable="false" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+										<circle cx="20" cy="20" r="20" stroke-width="0"></circle>
+										<g class="t849__lines" stroke-width="2px" fill="none">
+											<path d="M9 20H31"></path>
+											<path d="M20 9V31"></path>
+										</g>
+									</svg>
+								</button>
+							</div>
+							<div class="t849__content" id="accordion4_1148307866" hidden="">
+								<div class="t849__textwrapper">
+																												<div class="t849__text t-descr t-descr_sm" field="li_descr__1087140218033">Мы
+ следим за безопасностью на сайте и предпринимаем необходимые меры для 
+защиты пользователей от мошенничества и других неправомерных действий.</div>
+																	</div>
+							</div>
+						</div>
+					</div>
+											<div class="t849__border" style="height: 1px; background-color: #adebaf"></div>
+									</div>
+
+										</div>
+</div>
+
+	<style>@media (hover:hover) {#rec1148307866 .t849__trigger-button:hover .t849__icon {fill: #4CAF50;stroke: #ffffff;}}#rec1148307866 .t849__trigger-button:focus-visible .t849__icon {fill: #4CAF50;stroke: #ffffff;}</style>
+
+<script type="text/javascript">
+	t_onReady(function () {
+		t_onFuncLoad('t849_init', function () {
+			t849_init('1148307866');
+		});
+	});
+</script>
+
+    
+                
+                
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+            
+        
+                            
+        
+                                
+        
+            
+                                                                
+                                                                        
+                                                                        
+                
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                            
+                                                                        
+        
+                                                                        
+        
+                                                                        
+        
+                                                                        
+                                                                        
+            
+                                                                        
+        
+                                     
+        
+                
+        
+                                                                    
+                                                        
+         
+
+         
+     
+            <style> #rec1148307866 .t849__title {   color: #000000; } #rec1148307866 .t849__text {   color: #000000; }</style>
+    
+</div>
+
+</div>
+<!--/allrecords-->
+			<link href="a_data/t-page-preview.min.css" rel="stylesheet">
+		<script src="a_data/t-page-preview.min.js" type="text/javascript"></script>
+	
+
+<a href="https://tilda.ru/page/?pageid=71980253" style="text-decoration: none; color: rgb(255, 255, 255); display: none;" id="t-page-preview-back" target="_top">
+<div style="position:fixed;left:0px; bottom:10px; margin:20px; z-index:100003; font-family: Arial; font-size:12px; padding:15px 20px; background-color:#000; border-radius:20px;">
+<span>Вернуться к редактированию</span>
+</div>
+</a>
+
+
+
+
+<div class="t-zoomer__wrapper"><div class="t-zoomer__container"></div><div class="t-zoomer__bg"></div><div class="t-zoomer__close" style="display: none;"><svg width="20" height="20" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.41421 -0.000151038L0 1.41406L21.2132 22.6273L22.6274 21.2131L1.41421 -0.000151038Z" fill="black"></path><path d="M22.6291 1.41421L21.2148 0L0.00164068 21.2132L1.41585 22.6274L22.6291 1.41421Z" fill="black"></path></svg></div><div class="t-zoomer__scale showed"><svg class="icon-increase" width="20" height="20" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.832 22L17.8592 17.0273" stroke="black" stroke-width="2" stroke-linecap="square"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.58591 3.7511C0.917768 7.41924 0.917768 13.367 4.58591 17.0352C8.25405 20.7033 14.2019 20.7033 17.87 17.0352C21.5381 13.367 21.5381 7.41924 17.87 3.7511C14.2019 0.0829653 8.25405 0.0829653 4.58591 3.7511Z" stroke="black" stroke-width="2"></path><path d="M6.25781 10.3931H16.2035" stroke="black" stroke-width="2"></path><path d="M11.2305 15.3662V5.42053" stroke="black" stroke-width="2"></path></svg><svg class="icon-decrease" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.9961 22L17.0233 17.0273" stroke="black" stroke-width="2" stroke-linecap="square"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3.74997 3.7511C0.0818308 7.41924 0.0818308 13.367 3.74997 17.0352C7.41811 20.7033 13.3659 20.7033 17.0341 17.0352C20.7022 13.367 20.7022 7.41924 17.0341 3.7511C13.3659 0.0829653 7.41811 0.0829653 3.74997 3.7511Z" stroke="black" stroke-width="2"></path><path d="M5.41797 10.3931H15.3637" stroke="black" stroke-width="2"></path></svg></div></div></body></html>
